@@ -22,3 +22,23 @@ body {
 div {
 	margin-top: 2em;
 }
+
+a:link {
+	color: #000000;
+}
+
+a:visited {
+	color: #000000;
+}
+
+a:hover {
+	color: #FFFFFF;
+}
+
+a:active {
+	color: #000000;
+}
+
+a {
+	text-decoration: none;
+}
