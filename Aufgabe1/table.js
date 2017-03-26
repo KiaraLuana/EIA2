@@ -1,3 +1,4 @@
+//*Code in der Aufgabe vorgegeben*//
 document.addEventListener("DOMContentLoaded", function () {
     let n = 5;
     let c;
