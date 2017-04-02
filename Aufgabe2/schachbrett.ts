@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         else {
             color = "#FFFFFF";
     }
-            }
+           }
         else {
             if (i % 2 == 0) {
                 color = "#FFFFFF";
