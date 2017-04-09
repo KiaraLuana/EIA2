@@ -2,9 +2,13 @@
 Aufgabe: Aufgabe 3a: Sissas Summe
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 02.04.2017
+Datum: 09.04.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+Zu 2a: Dieser Code wurde zusammen mit Alfred Müller und mit Hilfestellung von Moritz Giuliani erstellt.
+Zu 3a: Dieser Code wurde mit Hilfestellung von Moritz Giuliani erstellt.
+
 */
 
 
@@ -45,5 +49,11 @@ div:nth-child(16n+16)
 }
 
 .selection {
-	background-color: red;
+	background-color: pink ! important;
 }
+
+#Summe {
+	background-color: #F0F8FF;
+	width: 10em;
+	height: 4em;
+	padding: 1em;
