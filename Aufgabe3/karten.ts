@@ -1,12 +1,12 @@
 /*
-Aufgabe: Aufgabe 3b: Mau Mau
+Aufgabe: Aufgabe 3b: Mau-Mau
 Name: Kiara Luana Oßwald
 Matrikel: 254140
 Datum: 09.04.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
-Dieser Code wurde zusammen mit ALfred Müller erstellt
+Dieser Code wurde zusammen mit ALfred Müller erstellt.
 
 */
 
