@@ -1,0 +1,59 @@
+/*
+Aufgabe: Aufgabe 3b: Mau Mau
+Name: Kiara Luana Oßwald
+Matrikel: 254140
+Datum: 09.04.2017
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+Dieser Code wurde zusammen mit Alfred Müller erstellt.
+
+*/
+#kartendeck {
+	width: 15em;
+	height: 20em;
+	background-color: pink;
+	border: 3px black solid;
+	margin: 5em;
+}
+
+#karte1 {
+	width: 15em;
+	height: 20em;
+	border: 3px black solid;
+	background-color: #F0F8FF
+}
+
+#karte2 {
+	width: 15em;
+	height: 20em;
+	border: 3px black solid;
+	background-color: #F0F8FF
+}
+
+#karte3 {
+	width: 15em;
+	height: 20em;
+	border: 3px black solid;
+	background-color: #F0F8FF
+}
+
+#karte4 {
+	width: 15em;
+	height: 20em;
+	border: 3px black solid;
+	background-color: #F0F8FF
+}
+
+#karte5 {
+	width: 15em;
+	height: 20em;
+	border: 3px black solid;
+	background-color: #F0F8FF
+}
+
+#kd {
+	width: 15em;
+	height: 20em;
+	margin-left: 4em;
+}

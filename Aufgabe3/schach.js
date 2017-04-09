@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             else {
                 document.getElementById("Summe").style.display = "inline-block";
             }
-            document.getElementById("Summe").textContent = "Summe der Reiskörner - " + "Dezimal: " + total.toString() + ";" + " Hexadezimal: " + total.toString(16);
+            document.getElementById("Summe").textContent = "Summe der Weizenkörner - " + "Dezimal: " + total.toString() + ";" + " Hexadezimal: " + total.toString(16);
             for (let i = 0; i < selected.length; i++) {
                 total += Number(selected[i].textContent);
             }

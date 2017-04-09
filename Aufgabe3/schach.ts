@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
         console.log(i);
 
     }
-    
+
     /*Aufgabe 3a*/
 
     for (let i: number = 0; i < 8; i++) {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
                 document.getElementById("Summe").style.display = "inline-block";
             }
 
-            document.getElementById("Summe").textContent = "Summe der Reiskörner - " + "Dezimal: " + total.toString() + ";" + " Hexadezimal: " + total.toString(16);
+            document.getElementById("Summe").textContent = "Summe der Weizenkörner - " + "Dezimal: " + total.toString() + ";" + " Hexadezimal: " + total.toString(16);
 
 
             for (let i: number = 0; i < selected.length; i++) {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
             }
         });
     }
-    document.addEventListener("mousemove", function (Event) {
+    document.addEventListener("mousemove", function(Event) {
         document.getElementById("Summe").style.left = (Event.clientX + 10) + "px";
         document.getElementById("Summe").style.top = (Event.clientY + 10) + "px";
     });
