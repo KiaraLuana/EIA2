@@ -55,5 +55,7 @@ Dieser Code wurde zusammen mit Alfred Müller erstellt.
 #kd {
 	width: 15em;
 	height: 20em;
-	margin-left: 4em;
+	background-color: pink;
+	border: 3px black solid;
+	margin: 5em;
 }
