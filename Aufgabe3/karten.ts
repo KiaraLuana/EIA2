@@ -16,7 +16,9 @@ Dieser Code wurde zusammen mit Alfred Müller erstellt.
 
 */
 
- 
+ namespace Aufgabe3 {
+     window.addEventListener("load", init);
+     
 
  
 
@@ -37,6 +39,30 @@ var nummer2: number = 0;
 var kartenwert: number;
 
 var karteh: string;
+
+var letzteKarte: string;
+
+
+function init(_event: Event): void {
+    
+    document.getElementById("kartendeck").addEventListener("click", ziehen);
+    
+    document.getElementById("karte1").addEventListener("click", myFunction1);
+    
+    document.getElementById("karte2").addEventListener("click", myFunction2);
+    
+    document.getElementById("karte3").addEventListener("click", myFunction3);
+    
+    document.getElementById("karte4").addEventListener("click", myFunction4);
+    
+    document.getElementById("karte5").addEventListener("click", myFunction5);
+    
+    }
+    
+    
+    
+    
+    
 
  
 
@@ -93,6 +119,8 @@ function myFunction1(): void {
     //Prüft ob Kartenfeld 1 eine Karte zugewiesen hat (innerHTML also Inhalt hat)
 
     if (document.getElementById("karte1").innerHTML != "") {
+        
+        letzteKarte = document.getElementById("karte1").innerHTML;
 
         document.getElementById("karte1").innerHTML = "";
 
@@ -100,7 +128,7 @@ function myFunction1(): void {
 
         nummer2++;
 
-        document.getElementById("kd").innerHTML = "abgelegte Karten : " + nummer2;
+        document.getElementById("kd").innerHTML = "Zuletzt: " + letzteKarte + " / Abgelegte Karten : " + nummer2;
 
     }
 
@@ -113,6 +141,8 @@ function myFunction2(): void {
     //Prüft ob Kartenfeld 2 eine Karte zugewiesen hat (innerHTML also Inhalt hat)
 
     if (document.getElementById("karte2").innerHTML != "") {
+        
+        letzteKarte = document.getElementById("karte2").innerHTML;
 
         document.getElementById("karte2").innerHTML = "";
 
@@ -120,7 +150,7 @@ function myFunction2(): void {
 
         nummer2++;
 
-        document.getElementById("kd").innerHTML = "abgelegte Karten : " + nummer2;
+        document.getElementById("kd").innerHTML = "Zuletzt: " + letzteKarte + " / Abgelegte Karten : " + nummer2;
 
     }
 
@@ -133,6 +163,8 @@ function myFunction3(): void {
     //Prüft ob Kartenfeld 3 eine Karte zugewiesen hat (innerHTML also Inhalt hat)
 
     if (document.getElementById("karte3").innerHTML != "") {
+        
+        letzteKarte = document.getElementById("karte3").innerHTML;
 
         document.getElementById("karte3").innerHTML = "";
 
@@ -140,7 +172,7 @@ function myFunction3(): void {
 
         nummer2++;
 
-        document.getElementById("kd").innerHTML = "abgelegte Karten : " + nummer2;
+        document.getElementById("kd").innerHTML = "Zuletzt: " + letzteKarte + " / Abgelegte Karten : " + nummer2;
 
     }
 
@@ -153,6 +185,8 @@ function myFunction4(): void {
     //Prüft ob Kartenfeld 4 eine Karte zugewiesen hat (innerHTML also Inhalt hat)
 
     if (document.getElementById("karte4").innerHTML != "") {
+        
+        letzteKarte = document.getElementById("karte4").innerHTML;
 
         document.getElementById("karte4").innerHTML = "";
 
@@ -160,7 +194,7 @@ function myFunction4(): void {
 
         nummer2++;
 
-        document.getElementById("kd").innerHTML = "abgelegte Karten : " + nummer2;
+        document.getElementById("kd").innerHTML = "Zuletzt: " + letzteKarte + " / Abgelegte Karten : " + nummer2;
 
     }
 
@@ -173,6 +207,8 @@ function myFunction5(): void {
     //Prüft ob Kartenfeld 5 eine Karte zugewiesen hat (innerHTML also Inhalt hat)
 
     if (document.getElementById("karte5").innerHTML != "") {
+        
+        letzteKarte = document.getElementById("karte5").innerHTML;
 
         document.getElementById("karte5").innerHTML = "";
 
@@ -180,8 +216,9 @@ function myFunction5(): void {
 
         nummer2++;
 
-        document.getElementById("kd").innerHTML = "abgelegte Karten : " + nummer2;
+        document.getElementById("kd").innerHTML =  "Zuletzt: " + letzteKarte + " / Abgelegte Karten : " + nummer2;
 
     }
 
 }
+     }
