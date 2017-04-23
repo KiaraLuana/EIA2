@@ -29,7 +29,6 @@ namespace L4_Canvas {
 
         //Stroke Color - Fill Color
         drawMoon(500, 50, "#FFFFFF", "#FFFFFF");
-        //drawStar(500, 100, "#FFFFFF", "#FFFFFF");
         drawBigMountain(70, 250, "#b3b3b3", "#262626");
         drawBigMountain(-20, 250, "#b3b3b3", "#262626");
         drawMiddleMountain(200, 250, "#b3b3b3", "#262626");
@@ -50,17 +49,17 @@ namespace L4_Canvas {
         drawMoonflower2(550, 398, "#CCCCFF", "#CCCCFF");
         drawPetal(550, 400, "#FFFFFF", "#FFFFFF");
         drawStalk(80, 285, "#000000", "#000000");
-        drawPinkfan(80, 290, "#FFC0CB", "#FFC0CB");
+        drawPinkfan(80, 290, "#ffe6ea", "#ffe6ea");
         drawStalk(420, 255, "#000000", "#000000");
-        drawPinkfan(420, 260, "#FFC0CB", "#FFC0CB");
+        drawGoldenrain(420, 260, "#EDE275", "#EDE275");
 
         var i: number;
         let random: number;
         let _x: number;
         let _y: number;
-        
+
         for (i = 0; i < 12; i++) {
-            random = Math.floor((Math.random() * 4) + 0);
+            random = Math.floor((Math.random() * 5) + 0);
             _x = (Math.random() * (600 - 0)) + 0;
             _y = (Math.random() * (400 - 260)) + 260;
             switch (random) {
@@ -80,13 +79,18 @@ namespace L4_Canvas {
                     break;
                 case 3:
                     drawStalk(_x, _y, "#000000", "#000000");
-                    drawPinkfan(_x, _y, "#FFC0CB", "#FFC0CB");
+                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
                     break;
-
+                case 4:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
+                    break;
             }
         }
 
     }
+    
+    //Umgebung
 
 
     function drawMoon(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -95,20 +99,6 @@ namespace L4_Canvas {
         crc2.strokeStyle = _strokeColor;
         crc2.moveTo(_x, _y);
         crc2.arc(_x, _y, 25, 0 * Math.PI, 2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-    }
-
-
-    function drawStar(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 2, 0 * Math.PI, 2 * Math.PI);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -191,15 +181,14 @@ namespace L4_Canvas {
         crc2.moveTo(_x, _y);
         crc2.quadraticCurveTo(350, 250, 150, 350);
         crc2.quadraticCurveTo(200, 450, 400, 350);
-
-        /*crc2.quadraticCurveTo(125, 100, 125, 62.5);
-        crc2.quadraticCurveTo(125, 25, 75, 25);*/
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
     }
+    
+    //Blumen
 
     function drawLilypad(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -299,4 +288,14 @@ namespace L4_Canvas {
         crc2.closePath();
     }
 
+    function drawGoldenrain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+    }
 }
