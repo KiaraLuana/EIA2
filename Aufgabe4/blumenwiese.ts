@@ -1,33 +1,60 @@
 /*
+
 Aufgabe: Aufgabe 4 - Blumenwiese
+
 Name: Kiara Luana Oßwald
+
 Matrikel: 254140
-Datum: 22.04.2017
+
+Datum: 23.04.2017
+
     
+
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
 */
 
+
 namespace L4_Canvas {
-    window.addEventListener("load", init);
+
     let crc2: CanvasRenderingContext2D;
+    let canvas: HTMLCanvasElement;
+
+    window.addEventListener("load", init);
+
+
+    //Initialisierung
 
     function init(_event: Event): void {
-        console.log("Hallo");
-        let canvas: HTMLCanvasElement;
+        console.log("Initialisierung");
+
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
 
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
+        drawCanvas();
+    }
+
+
+    //Gesamtes Bild
+
+    function drawCanvas(): void {
+
         //Himmel
+
         crc2.fillStyle = "#131354";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
+
         //Wiese
+
         crc2.fillStyle = "#54B863";
         crc2.fillRect(0, 250, 600, 250);
 
+
         //Stroke Color - Fill Color
+
         drawMoon(500, 50, "#FFFFFF", "#FFFFFF");
         drawBigMountain(70, 250, "#b3b3b3", "#262626");
         drawBigMountain(-20, 250, "#b3b3b3", "#262626");
@@ -36,67 +63,39 @@ namespace L4_Canvas {
         drawCloud(350, 40, "#808080", "#808080");
         drawCloud(480, 130, "#808080", "#808080");
         drawPond(400, 350, "#ccffff", "#ccffff");
+
+
+        //Einzelne Blumen
+
         drawLilypad(340, 330, "#006600", "#006600");
         drawWaterlily(340, 325, "#f2f2f2", "#f2f2f2");
         drawStalk(200, 255, "#000000", "#000000");
         drawDandelion(200, 250, "#FFFFFF", "#FFFFFF");
         drawStalk(180, 265, "#000000", "#000000");
         drawDandelion(180, 270, "#FFFFFF", "#FFFFFF");
-        drawStalk(500, 320, "#000000", "#000000");
-        drawMoonflower1(500, 298, "#6EFFFF", "#6EFFFF");
-        drawPetal(500, 300, "#FFFFFF", "#FFFFFF");
-        drawStalk(550, 420, "#000000", "#000000");
-        drawMoonflower2(550, 398, "#CCCCFF", "#CCCCFF");
-        drawPetal(550, 400, "#FFFFFF", "#FFFFFF");
-        drawStalk(80, 285, "#000000", "#000000");
-        drawPinkfan(80, 290, "#ffe6ea", "#ffe6ea");
-        drawStalk(420, 255, "#000000", "#000000");
-        drawGoldenrain(420, 260, "#EDE275", "#EDE275");
-        drawFlowerField(-150, -300, -200, -400);
-        //drawFlowerField(100, -70, -200, -400);
-        
-        function drawFlowerField(xStart: number, xEnd: number, yStart: number, yEnd: number): void {
-            
+        drawStalk(350, 420, "#000000", "#000000");
+        drawMoonflower1(350, 398, "#6EFFFF", "#6EFFFF");
+        drawPetal(350, 400, "#FFFFFF", "#FFFFFF");
+        drawStalk(250, 370, "#000000", "#000000");
+        drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
+        drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
+        drawStalk(280, 235, "#000000", "#000000");
+        drawPinkfan(280, 240, "#ffe6ea", "#ffe6ea");
+        drawStalk(190, 385, "#000000", "#000000");
+        drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
+        drawStalk(380, 255, "#000000", "#000000");
+        drawGoldenrain(380, 260, "#EDE275", "#EDE275");
 
-        var i: number;
-        let random: number;
-        let _x: number;
-        let _y: number;
 
-        for (i = 0; i < 12; i++) {
-            random = Math.floor((Math.random() * 5) + 0);
-            _x = (Math.random() * (xStart - xEnd)) + 0;
-            _y = (Math.random() * (yStart - yEnd)) + 260;
-            switch (random) {
-                case 0:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 1:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
-                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 2:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
-                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 3:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
-                    break;
-                case 4:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
-                    break;
-            }
-        }
-}
+        //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
+
+        drawFlowerField(0, 150, 260, 400, 10);
+        drawFlowerField(400, 600, 260, 400, 15);
+
     }
-    
-    //Umgebung
 
+
+    //Umgebung
 
     function drawMoon(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -110,7 +109,6 @@ namespace L4_Canvas {
         crc2.fill();
         crc2.stroke();
     }
-
 
     function drawSmallMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -127,6 +125,7 @@ namespace L4_Canvas {
     }
 
     function drawMiddleMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -138,10 +137,6 @@ namespace L4_Canvas {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
-        
-
-
     }
 
     function drawBigMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -177,9 +172,7 @@ namespace L4_Canvas {
         crc2.fill();
         crc2.arc(_x + 30, _y + 1, 25, 0, 2 * Math.PI);
         crc2.fill();
-
     }
-
 
     function drawPond(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -194,7 +187,8 @@ namespace L4_Canvas {
         crc2.fill();
         crc2.stroke();
     }
-    
+
+
     //Blumen
 
     function drawLilypad(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -304,5 +298,50 @@ namespace L4_Canvas {
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
+    }
+
+
+    //Blumenwiese
+
+    function drawFlowerField(xMin: number, xMax: number, yMin: number, yMax: number, flowers: number): void {
+        console.log("Ein Blumenfeld von: ", xMin, "bis: ", xMax, "(Horizontal) und von: ", yMin, "bis: ", yMax, "(Vertical)");
+
+        var i: number;
+        let random: number;
+        let _x: number;
+        let _y: number;
+
+        for (i = 0; i < flowers; i++) {
+            //Zufällige Position im Feld
+            _x = Math.random() * (xMax - xMin) + xMin;
+            _y = Math.random() * (yMax - yMin) + yMin;
+
+            //Zufälligere Blumentyp
+            random = Math.floor((Math.random() * 5) + 0);
+            switch (random) {
+                case 0:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 1:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
+                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 2:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
+                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 3:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
+                    break;
+                case 4:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
+                    break;
+            }
+        }
     }
 }

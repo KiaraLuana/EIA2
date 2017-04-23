@@ -1,22 +1,34 @@
 /*
+
 Aufgabe: Aufgabe 4 - Blumenwiese
+
 Name: Kiara Luana Oßwald
+
 Matrikel: 254140
-Datum: 22.04.2017
+
+Datum: 23.04.2017
+
     
+
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
 */
 var L4_Canvas;
 (function (L4_Canvas) {
-    window.addEventListener("load", init);
     let crc2;
+    let canvas;
+    window.addEventListener("load", init);
+    //Initialisierung
     function init(_event) {
-        console.log("Hallo");
-        let canvas;
+        console.log("Initialisierung");
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         crc2 = canvas.getContext("2d");
         console.log(crc2);
+        drawCanvas();
+    }
+    //Gesamtes Bild
+    function drawCanvas() {
         //Himmel
         crc2.fillStyle = "#131354";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
@@ -32,59 +44,28 @@ var L4_Canvas;
         drawCloud(350, 40, "#808080", "#808080");
         drawCloud(480, 130, "#808080", "#808080");
         drawPond(400, 350, "#ccffff", "#ccffff");
+        //Einzelne Blumen
         drawLilypad(340, 330, "#006600", "#006600");
         drawWaterlily(340, 325, "#f2f2f2", "#f2f2f2");
         drawStalk(200, 255, "#000000", "#000000");
         drawDandelion(200, 250, "#FFFFFF", "#FFFFFF");
         drawStalk(180, 265, "#000000", "#000000");
         drawDandelion(180, 270, "#FFFFFF", "#FFFFFF");
-        drawStalk(500, 320, "#000000", "#000000");
-        drawMoonflower1(500, 298, "#6EFFFF", "#6EFFFF");
-        drawPetal(500, 300, "#FFFFFF", "#FFFFFF");
-        drawStalk(550, 420, "#000000", "#000000");
-        drawMoonflower2(550, 398, "#CCCCFF", "#CCCCFF");
-        drawPetal(550, 400, "#FFFFFF", "#FFFFFF");
-        drawStalk(80, 285, "#000000", "#000000");
-        drawPinkfan(80, 290, "#ffe6ea", "#ffe6ea");
-        drawStalk(420, 255, "#000000", "#000000");
-        drawGoldenrain(420, 260, "#EDE275", "#EDE275");
-        drawFlowerField(-150, -300, -200, -400);
-        //drawFlowerField(100, -70, -200, -400);
-        function drawFlowerField(xStart, xEnd, yStart, yEnd) {
-            var i;
-            let random;
-            let _x;
-            let _y;
-            for (i = 0; i < 12; i++) {
-                random = Math.floor((Math.random() * 5) + 0);
-                _x = (Math.random() * (xStart - xEnd)) + 0;
-                _y = (Math.random() * (yStart - yEnd)) + 260;
-                switch (random) {
-                    case 0:
-                        drawStalk(_x, _y, "#000000", "#000000");
-                        drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
-                        break;
-                    case 1:
-                        drawStalk(_x, _y, "#000000", "#000000");
-                        drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
-                        drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                        break;
-                    case 2:
-                        drawStalk(_x, _y, "#000000", "#000000");
-                        drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
-                        drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                        break;
-                    case 3:
-                        drawStalk(_x, _y, "#000000", "#000000");
-                        drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
-                        break;
-                    case 4:
-                        drawStalk(_x, _y, "#000000", "#000000");
-                        drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
-                        break;
-                }
-            }
-        }
+        drawStalk(350, 420, "#000000", "#000000");
+        drawMoonflower1(350, 398, "#6EFFFF", "#6EFFFF");
+        drawPetal(350, 400, "#FFFFFF", "#FFFFFF");
+        drawStalk(250, 370, "#000000", "#000000");
+        drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
+        drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
+        drawStalk(280, 235, "#000000", "#000000");
+        drawPinkfan(280, 240, "#ffe6ea", "#ffe6ea");
+        drawStalk(190, 385, "#000000", "#000000");
+        drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
+        drawStalk(380, 255, "#000000", "#000000");
+        drawGoldenrain(380, 260, "#EDE275", "#EDE275");
+        //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
+        drawFlowerField(0, 150, 260, 400, 10);
+        drawFlowerField(400, 600, 260, 400, 15);
     }
     //Umgebung
     function drawMoon(_x, _y, _strokeColor, _fillColor) {
@@ -271,6 +252,45 @@ var L4_Canvas;
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
+    }
+    //Blumenwiese
+    function drawFlowerField(xMin, xMax, yMin, yMax, flowers) {
+        console.log("Ein Blumenfeld von: ", xMin, "bis: ", xMax, "(Horizontal) und von: ", yMin, "bis: ", yMax, "(Vertical)");
+        var i;
+        let random;
+        let _x;
+        let _y;
+        for (i = 0; i < flowers; i++) {
+            //Zufällige Position im Feld
+            _x = Math.random() * (xMax - xMin) + xMin;
+            _y = Math.random() * (yMax - yMin) + yMin;
+            //Zufälligere Blumentyp
+            random = Math.floor((Math.random() * 5) + 0);
+            switch (random) {
+                case 0:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 1:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
+                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 2:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
+                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                    break;
+                case 3:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
+                    break;
+                case 4:
+                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
+                    break;
+            }
+        }
     }
 })(L4_Canvas || (L4_Canvas = {}));
 //# sourceMappingURL=blumenwiese.js.map
