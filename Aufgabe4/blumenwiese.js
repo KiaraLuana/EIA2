@@ -47,21 +47,21 @@ var L4_Canvas;
         //Einzelne Blumen
         drawLilypad(340, 330, "#006600", "#006600");
         drawWaterlily(340, 325, "#f2f2f2", "#f2f2f2");
-        drawStalk(200, 255, "#000000", "#000000");
+        drawStalk(200, 255, "#268C4C", "#268C4C");
         drawDandelion(200, 250, "#FFFFFF", "#FFFFFF");
-        drawStalk(180, 265, "#000000", "#000000");
+        drawStalk(180, 265, "#268C4C", "#268C4C");
         drawDandelion(180, 270, "#FFFFFF", "#FFFFFF");
-        drawStalk(350, 420, "#000000", "#000000");
+        drawStalk(350, 420, "#268C4C", "#268C4C");
         drawMoonflower1(350, 398, "#6EFFFF", "#6EFFFF");
         drawPetal(350, 400, "#FFFFFF", "#FFFFFF");
-        drawStalk(250, 370, "#000000", "#000000");
+        drawStalk(250, 370, "#268C4C", "#268C4C");
         drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
         drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
-        drawStalk(280, 235, "#000000", "#000000");
+        drawStalk(280, 235, "#268C4C", "#268C4C");
         drawPinkfan(280, 240, "#ffe6ea", "#ffe6ea");
-        drawStalk(190, 385, "#000000", "#000000");
+        drawStalk(190, 385, "#268C4C", "#268C4C");
         drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
-        drawStalk(380, 255, "#000000", "#000000");
+        drawStalk(380, 255, "#268C4C", "#268C4C");
         drawGoldenrain(380, 260, "#EDE275", "#EDE275");
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
@@ -268,25 +268,25 @@ var L4_Canvas;
             random = Math.floor((Math.random() * 5) + 0);
             switch (random) {
                 case 0:
-                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
                     break;
                 case 1:
-                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
                     drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
                     break;
                 case 2:
-                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
                     drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
                     break;
                 case 3:
-                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
                     break;
                 case 4:
-                    drawStalk(_x, _y, "#000000", "#000000");
+                    drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
                     break;
             }
