@@ -52,6 +52,11 @@ namespace L4_Canvas {
         drawPinkfan(80, 290, "#ffe6ea", "#ffe6ea");
         drawStalk(420, 255, "#000000", "#000000");
         drawGoldenrain(420, 260, "#EDE275", "#EDE275");
+        drawFlowerField(-150, -300, -200, -400);
+        //drawFlowerField(100, -70, -200, -400);
+        
+        function drawFlowerField(xStart: number, xEnd: number, yStart: number, yEnd: number): void {
+            
 
         var i: number;
         let random: number;
@@ -60,8 +65,8 @@ namespace L4_Canvas {
 
         for (i = 0; i < 12; i++) {
             random = Math.floor((Math.random() * 5) + 0);
-            _x = (Math.random() * (600 - 0)) + 0;
-            _y = (Math.random() * (400 - 260)) + 260;
+            _x = (Math.random() * (xStart - xEnd)) + 0;
+            _y = (Math.random() * (yStart - yEnd)) + 260;
             switch (random) {
                 case 0:
                     drawStalk(_x, _y, "#000000", "#000000");
@@ -87,7 +92,7 @@ namespace L4_Canvas {
                     break;
             }
         }
-
+}
     }
     
     //Umgebung

@@ -48,37 +48,41 @@ var L4_Canvas;
         drawPinkfan(80, 290, "#ffe6ea", "#ffe6ea");
         drawStalk(420, 255, "#000000", "#000000");
         drawGoldenrain(420, 260, "#EDE275", "#EDE275");
-        var i;
-        let random;
-        let _x;
-        let _y;
-        for (i = 0; i < 12; i++) {
-            random = Math.floor((Math.random() * 5) + 0);
-            _x = (Math.random() * (600 - 0)) + 0;
-            _y = (Math.random() * (400 - 260)) + 260;
-            switch (random) {
-                case 0:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 1:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
-                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 2:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
-                    drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 3:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
-                    break;
-                case 4:
-                    drawStalk(_x, _y, "#000000", "#000000");
-                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
-                    break;
+        drawFlowerField(-150, -300, -200, -400);
+        //drawFlowerField(100, -70, -200, -400);
+        function drawFlowerField(xStart, xEnd, yStart, yEnd) {
+            var i;
+            let random;
+            let _x;
+            let _y;
+            for (i = 0; i < 12; i++) {
+                random = Math.floor((Math.random() * 5) + 0);
+                _x = (Math.random() * (xStart - xEnd)) + 0;
+                _y = (Math.random() * (yStart - yEnd)) + 260;
+                switch (random) {
+                    case 0:
+                        drawStalk(_x, _y, "#000000", "#000000");
+                        drawDandelion(_x, _y, "#FFFFFF", "#FFFFFF");
+                        break;
+                    case 1:
+                        drawStalk(_x, _y, "#000000", "#000000");
+                        drawMoonflower1(_x, _y, "#6EFFFF", "#6EFFFF");
+                        drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                        break;
+                    case 2:
+                        drawStalk(_x, _y, "#000000", "#000000");
+                        drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
+                        drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
+                        break;
+                    case 3:
+                        drawStalk(_x, _y, "#000000", "#000000");
+                        drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
+                        break;
+                    case 4:
+                        drawStalk(_x, _y, "#000000", "#000000");
+                        drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
+                        break;
+                }
             }
         }
     }
