@@ -64,7 +64,6 @@ namespace L4_Canvas {
         drawCloud(480, 130, "#808080", "#808080");
         drawPond(400, 350, "#ccffff", "#ccffff");
 
-
         //Einzelne Blumen
 
         drawLilypad(340, 330, "#006600", "#006600");
@@ -90,7 +89,7 @@ namespace L4_Canvas {
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
 
         drawFlowerField(0, 150, 260, 400, 10);
-        drawFlowerField(400, 600, 260, 400, 15);
+        drawFlowerField(400, 600, 260, 400, 12);
 
     }
 

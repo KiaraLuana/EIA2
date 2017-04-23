@@ -65,7 +65,7 @@ var L4_Canvas;
         drawGoldenrain(380, 260, "#EDE275", "#EDE275");
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
-        drawFlowerField(400, 600, 260, 400, 15);
+        drawFlowerField(400, 600, 260, 400, 12);
     }
     //Umgebung
     function drawMoon(_x, _y, _strokeColor, _fillColor) {
