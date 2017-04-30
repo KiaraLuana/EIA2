@@ -25,8 +25,8 @@ var L4_Canvas;
         drawCanvas();
         //Glühwürmchen Startposition
         for (let i = 0; i < n; i++) {
-            x[i] = 500;
-            y[i] = 350;
+            x[i] = 520;
+            y[i] = 345;
         }
         window.setTimeout(animation, 20);
     }
@@ -47,6 +47,8 @@ var L4_Canvas;
         drawCloud(350, 40, "#808080", "#808080");
         drawCloud(480, 130, "#808080", "#808080");
         drawPond(400, 350, "#ccffff", "#ccffff");
+        drawJar(500, 350, "#F7E0FF", "#F7E0FF");
+        drawLid(530, 350, "#808080", "#808080");
         //Einzelne Blumen
         drawLilypad(340, 330, "#006600", "#006600");
         drawWaterlily(340, 325, "#f2f2f2", "#f2f2f2");
@@ -66,7 +68,6 @@ var L4_Canvas;
         drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
         drawStalk(380, 255, "#268C4C", "#268C4C");
         drawGoldenrain(380, 260, "#EDE275", "#EDE275");
-        drawJar(500, 350, "#c0c0c0", "#c0c0c0");
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
         drawFlowerField(400, 600, 260, 400, 5);
@@ -102,18 +103,22 @@ var L4_Canvas;
         window.setTimeout(animation, 80);
     }
     function addFirefly() {
-        x.push(500);
-        y.push(350);
+        x.push(520);
+        y.push(345);
         n++;
         console.log("Add");
     }
     //Glühwürmchen
     function drawFirefly(_x, _y) {
         crc2.beginPath();
-        crc2.fillStyle = "#FFFFFF";
-        crc2.strokeStyle = "#FFFFFF";
+        crc2.fillStyle = "#fffacd";
+        crc2.strokeStyle = "#fffacd";
         crc2.moveTo(_x, _y);
         crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.shadowColor = "#FFFFFF";
+        crc2.shadowBlur = 20;
+        crc2.shadowOffsetX = 0;
+        crc2.shadowOffsetY = 0;
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -129,6 +134,21 @@ var L4_Canvas;
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawLid(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 15, _y + 25);
+        crc2.lineWidth = 2;
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
     }
     //Umgebung
     function drawMoon(_x, _y, _strokeColor, _fillColor) {
