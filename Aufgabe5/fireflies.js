@@ -1,8 +1,8 @@
 /*
-Aufgabe: Aufgabe 4 - Blumenwiese
+Aufgabe: Aufgabe 5 - Bienenschwarm
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 23.04.2017
+Datum: 30.04.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -10,6 +10,10 @@ var L4_Canvas;
 (function (L4_Canvas) {
     let crc2;
     let canvas;
+    let background;
+    let x = [];
+    let y = [];
+    let n = 10;
     window.addEventListener("load", init);
     //Initialisierung
     function init(_event) {
@@ -19,6 +23,12 @@ var L4_Canvas;
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         drawCanvas();
+        //Glühwürmchen Startposition
+        for (let i = 0; i < n; i++) {
+            x[i] = 500;
+            y[i] = 350;
+        }
+        window.setTimeout(animation, 20);
     }
     //Gesamtes Bild
     function drawCanvas() {
@@ -56,9 +66,69 @@ var L4_Canvas;
         drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
         drawStalk(380, 255, "#268C4C", "#268C4C");
         drawGoldenrain(380, 260, "#EDE275", "#EDE275");
+        drawJar(500, 350, "#c0c0c0", "#c0c0c0");
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
-        drawFlowerField(400, 600, 260, 400, 12);
+        drawFlowerField(400, 600, 260, 400, 5);
+        background = crc2.getImageData(0, 0, 600, 450);
+    }
+    //Animation
+    function animation() {
+        crc2.putImageData(background, 0, 0);
+        console.log("Animate called");
+        //Flugverhalten
+        for (let i = 0; i < n; i++) {
+            x[i] += Math.random() * 3 - 5;
+            y[i] += Math.random() * 20 - 12;
+            drawFirefly(x[i], y[i]);
+            //Neues Glühwürmchen 
+            canvas.addEventListener("click", addFirefly);
+            canvas.addEventListener("push", addFirefly);
+            //Übergänge - Canvasrand
+            if (x[i] < 0) {
+                x[i] = 600;
+            }
+            if (x[i] > 600) {
+                x[i] = 0;
+            }
+            if (y[i] < 0) {
+                y[i] = 450;
+            }
+            if (y[i] > 450) {
+                y[i] = 0;
+            }
+            drawFirefly(x[i], y[i]);
+        }
+        window.setTimeout(animation, 80);
+    }
+    function addFirefly() {
+        x.push(500);
+        y.push(350);
+        n++;
+        console.log("Add");
+    }
+    //Glühwürmchen
+    function drawFirefly(_x, _y) {
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawJar(_x, _y, _strokeColor, _fillColor) {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.fillRect(_x, _y, 30, 40);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
     }
     //Umgebung
     function drawMoon(_x, _y, _strokeColor, _fillColor) {
@@ -286,4 +356,4 @@ var L4_Canvas;
         }
     }
 })(L4_Canvas || (L4_Canvas = {}));
-//# sourceMappingURL=blumenwiese.js.map
+//# sourceMappingURL=fireflies.js.map

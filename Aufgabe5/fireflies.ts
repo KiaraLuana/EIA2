@@ -1,34 +1,67 @@
 /*
-Aufgabe: Aufgabe 4 - Blumenwiese
+Aufgabe: Aufgabe 5 - Bienenschwarm
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 23.04.2017
+Datum: 30.04.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var L4_Canvas;
-(function (L4_Canvas) {
-    let crc2;
-    let canvas;
+
+
+namespace L4_Canvas {
+
+    let crc2: CanvasRenderingContext2D;
+    let canvas: HTMLCanvasElement;
+    let background: ImageData;
+    let x: number[] = [];
+    let y: number[] = [];
+    let n: number = 10;
+
     window.addEventListener("load", init);
+
+
     //Initialisierung
-    function init(_event) {
+
+    function init(_event: Event): void {
         console.log("Initialisierung");
+
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
+
         crc2 = canvas.getContext("2d");
         console.log(crc2);
+
         drawCanvas();
+
+        //Glühwürmchen Startposition
+
+        for (let i: number = 0; i < n; i++) {
+            x[i] = 500;
+            y[i] = 350;
+        }
+
+        window.setTimeout(animation, 20);
     }
+
+
+
     //Gesamtes Bild
-    function drawCanvas() {
+
+    function drawCanvas(): void {
+
         //Himmel
+
         crc2.fillStyle = "#131354";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
+
         //Wiese
+
         crc2.fillStyle = "#54B863";
         crc2.fillRect(0, 250, 600, 250);
+
+
         //Stroke Color - Fill Color
+
         drawMoon(500, 50, "#FFFFFF", "#FFFFFF");
         drawBigMountain(70, 250, "#b3b3b3", "#262626");
         drawBigMountain(-20, 250, "#b3b3b3", "#262626");
@@ -37,7 +70,9 @@ var L4_Canvas;
         drawCloud(350, 40, "#808080", "#808080");
         drawCloud(480, 130, "#808080", "#808080");
         drawPond(400, 350, "#ccffff", "#ccffff");
+
         //Einzelne Blumen
+
         drawLilypad(340, 330, "#006600", "#006600");
         drawWaterlily(340, 325, "#f2f2f2", "#f2f2f2");
         drawStalk(200, 255, "#268C4C", "#268C4C");
@@ -56,12 +91,92 @@ var L4_Canvas;
         drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
         drawStalk(380, 255, "#268C4C", "#268C4C");
         drawGoldenrain(380, 260, "#EDE275", "#EDE275");
+        drawJar(500, 350, "#c0c0c0", "#c0c0c0");
+
+
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
+
         drawFlowerField(0, 150, 260, 400, 10);
-        drawFlowerField(400, 600, 260, 400, 12);
+        drawFlowerField(400, 600, 260, 400, 5);
+
+        background = crc2.getImageData(0, 0, 600, 450);
+
     }
+
+
+    //Animation
+
+    function animation(): void {
+        crc2.putImageData(background, 0, 0);
+        console.log("Animate called");
+
+        //Flugverhalten
+        for (let i: number = 0; i < n; i++) {
+            x[i] += Math.random() * 3 - 5;
+            y[i] += Math.random() * 20 - 12;
+            drawFirefly(x[i], y[i]);
+
+            //Neues Glühwürmchen 
+            canvas.addEventListener("click", addFirefly);
+            canvas.addEventListener("push", addFirefly);
+
+
+            //Übergänge - Canvasrand
+            if (x[i] < 0) {
+                x[i] = 600;
+            }
+            if (x[i] > 600) {
+                x[i] = 0;
+            }
+            if (y[i] < 0) {
+                y[i] = 450;
+            }
+            if (y[i] > 450) {
+                y[i] = 0;
+            }
+            drawFirefly(x[i], y[i]);
+        }
+
+        window.setTimeout(animation, 80);
+    }
+
+    function addFirefly(): void {
+        x.push(500);
+        y.push(350);
+        n++;
+        console.log("Add");
+    }
+
+    //Glühwürmchen
+
+    function drawFirefly(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+    function drawJar(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.fillRect(_x, _y, 30, 40);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+    }
+
+
     //Umgebung
-    function drawMoon(_x, _y, _strokeColor, _fillColor) {
+
+    function drawMoon(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -73,7 +188,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawSmallMountain(_x, _y, _strokeColor, _fillColor) {
+
+    function drawSmallMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -86,7 +202,9 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawMiddleMountain(_x, _y, _strokeColor, _fillColor) {
+
+    function drawMiddleMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -99,7 +217,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawBigMountain(_x, _y, _strokeColor, _fillColor) {
+
+    function drawBigMountain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -112,7 +231,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawCloud(_x, _y, _strokeColor, _fillColor) {
+
+    function drawCloud(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.fillStyle = _fillColor;
         crc2.beginPath();
         crc2.arc(_x, _y, 30, 0, 2 * Math.PI);
@@ -132,7 +252,8 @@ var L4_Canvas;
         crc2.arc(_x + 30, _y + 1, 25, 0, 2 * Math.PI);
         crc2.fill();
     }
-    function drawPond(_x, _y, _strokeColor, _fillColor) {
+
+    function drawPond(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -145,8 +266,11 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
+
+
     //Blumen
-    function drawLilypad(_x, _y, _strokeColor, _fillColor) {
+
+    function drawLilypad(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -158,7 +282,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawWaterlily(_x, _y, _strokeColor, _fillColor) {
+
+    function drawWaterlily(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -170,7 +295,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawDandelion(_x, _y, _strokeColor, _fillColor) {
+
+    function drawDandelion(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -182,7 +308,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawStalk(_x, _y, _strokeColor, _fillColor) {
+
+    function drawStalk(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -192,7 +319,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.closePath();
     }
-    function drawMoonflower1(_x, _y, _strokeColor, _fillColor) {
+
+    function drawMoonflower1(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -204,7 +332,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawMoonflower2(_x, _y, _strokeColor, _fillColor) {
+
+    function drawMoonflower2(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -216,7 +345,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawPetal(_x, _y, _strokeColor, _fillColor) {
+
+    function drawPetal(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -226,7 +356,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.closePath();
     }
-    function drawPinkfan(_x, _y, _strokeColor, _fillColor) {
+
+    function drawPinkfan(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -236,7 +367,8 @@ var L4_Canvas;
         crc2.fill();
         crc2.closePath();
     }
-    function drawGoldenrain(_x, _y, _strokeColor, _fillColor) {
+
+    function drawGoldenrain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -246,17 +378,24 @@ var L4_Canvas;
         crc2.fill();
         crc2.closePath();
     }
+
+
+
     //Blumenwiese
-    function drawFlowerField(xMin, xMax, yMin, yMax, flowers) {
+
+    function drawFlowerField(xMin: number, xMax: number, yMin: number, yMax: number, flowers: number): void {
         console.log("Ein Blumenfeld von: ", xMin, "bis: ", xMax, "(Horizontal) und von: ", yMin, "bis: ", yMax, "(Vertical)");
-        var i;
-        let random;
-        let _x;
-        let _y;
+
+        var i: number;
+        let random: number;
+        let _x: number;
+        let _y: number;
+
         for (i = 0; i < flowers; i++) {
             //Zufällige Position im Feld
             _x = Math.random() * (xMax - xMin) + xMin;
             _y = Math.random() * (yMax - yMin) + yMin;
+
             //Zufälligere Blumentyp
             random = Math.floor((Math.random() * 5) + 0);
             switch (random) {
@@ -285,5 +424,4 @@ var L4_Canvas;
             }
         }
     }
-})(L4_Canvas || (L4_Canvas = {}));
-//# sourceMappingURL=blumenwiese.js.map
+}

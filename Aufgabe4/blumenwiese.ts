@@ -1,17 +1,10 @@
 /*
-
 Aufgabe: Aufgabe 4 - Blumenwiese
-
 Name: Kiara Luana Oßwald
-
 Matrikel: 254140
-
 Datum: 23.04.2017
 
-    
-
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 */
 
 
