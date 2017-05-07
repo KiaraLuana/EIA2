@@ -51,9 +51,6 @@ var StudiVZ;
         if (data[4] == "1") {
             gender = "männlich";
         }
-        else {
-            return "Bitte 0 oder 1 eingeben";
-        }
         students.push(student);
         return "Gespeicherte Daten:\n"
             + "\nMatrikelnummer: " + student.matrikel
