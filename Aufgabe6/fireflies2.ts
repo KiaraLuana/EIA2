@@ -124,6 +124,20 @@ namespace L4_Canvas {
                 firefly[i].x += Math.random() * 3 - 5;
                 firefly[i].y += Math.random() * 20 - 12;
                 drawFirefly(firefly[i]);
+
+                if (firefly.x < 0) {
+                    firefly.x = canvas.width;
+                }
+                if (firefly.x > canvas.width) {
+                    firefly.x = 0;
+                }
+                if (firefly.y < 0) {
+                    firefly.y = canvas.height;
+                }
+                if (firefly.y > canvas.height) {
+                    firefly.y = 0;
+                }
+                drawFirefly(firefly[i]);
             }
 
 
@@ -135,19 +149,7 @@ namespace L4_Canvas {
 
             //Übergänge - Canvasrand
 
-            if (firefly.x < 0) {
-                firefly.x = canvas.width;
-            }
-            if (firefly.x > canvas.width) {
-                firefly.x = 0;
-            }
-            if (firefly.y < 0) {
-                firefly.y = canvas.height;
-            }
-            if (firefly.y > canvas.height) {
-                firefly.y = 0;
-            }
-            drawFirefly(firefly[i]);
+
         }
 
         window.setTimeout(animation, 80);
@@ -455,5 +457,6 @@ namespace L4_Canvas {
                         break;
                 }
             }
-        } })(aufgabe6a || (aufgabe6a = {}));
+        }
+    })(aufgabe6a || (aufgabe6a = {}));
 }

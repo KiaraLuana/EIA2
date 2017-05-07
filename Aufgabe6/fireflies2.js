@@ -13,8 +13,7 @@ var L4_Canvas;
         let crc2;
         let canvas;
         let background;
-        let x = [];
-        let y = [];
+        let firefly = [];
         let n = 10;
         let startFirefly;
         let xJar = 520;
@@ -30,8 +29,8 @@ var L4_Canvas;
             drawCanvas();
             //Glühwürmchen Startposition
             for (let i = 0; i < n; i++) {
-                x[i] = 520;
-                y[i] = 345;
+                startFirefly = { x: xJar, y: yJar };
+                firefly[i] = startFirefly;
             }
             window.setTimeout(animation, 20);
         }
@@ -83,43 +82,43 @@ var L4_Canvas;
             crc2.putImageData(background, 0, 0);
             console.log("Animate called");
             //Flugverhalten
-            for (let i = 0; i < n; i++) {
-                x[i] += Math.random() * 3 - 5;
-                y[i] += Math.random() * 20 - 12;
-                drawFirefly(x[i], y[i]);
-                //Neues Glühwürmchen 
-                canvas.addEventListener("click", addFirefly);
-                canvas.addEventListener("push", addFirefly);
-                //Übergänge - Canvasrand
-                if (x[i] < 0) {
-                    x[i] = canvas.width;
+            for (let i = 0; i < firefly; i++) {
+                firefly[i].x += Math.random() * 3 - 5;
+                firefly[i].y += Math.random() * 20 - 12;
+                drawFirefly(firefly[i]);
+                if (firefly.x < 0) {
+                    firefly.x = canvas.width;
                 }
-                if (x[i] > canvas.width) {
-                    x[i] = 0;
+                if (firefly.x > canvas.width) {
+                    firefly.x = 0;
                 }
-                if (y[i] < 0) {
-                    y[i] = canvas.height;
+                if (firefly.y < 0) {
+                    firefly.y = canvas.height;
                 }
-                if (y[i] > canvas.height) {
-                    y[i] = 0;
+                if (firefly.y > canvas.height) {
+                    firefly.y = 0;
                 }
-                drawFirefly(x[i], y[i]);
+                drawFirefly(firefly[i]);
             }
-            window.setTimeout(animation, 80);
+            //Neues Glühwürmchen 
+            canvas.addEventListener("click", addFirefly);
+            canvas.addEventListener("push", addFirefly);
+            //Übergänge - Canvasrand
         }
+        window.setTimeout(animation, 80);
         function addFirefly() {
-            x.push(520);
-            y.push(345);
+            firefly.x.push(520);
+            firefly.y.push(345);
             n++;
             console.log("Add");
         }
         //Glühwürmchen
-        function drawFirefly(_x, _y) {
+        function drawFirefly(firefly) {
             crc2.beginPath();
             crc2.fillStyle = "#fffacd";
             crc2.strokeStyle = "#fffacd";
-            crc2.moveTo(_x, _y);
-            crc2.arc(_x, _y, 5, 0 * Math.PI, 2 * Math.PI);
+            crc2.moveTo(firefly.x, firefly.y);
+            crc2.arc(firefly.x, firefly.y, 5, 0 * Math.PI, 2 * Math.PI);
             crc2.shadowColor = "#FFFFFF";
             crc2.shadowBlur = 20;
             crc2.shadowOffsetX = 0;
