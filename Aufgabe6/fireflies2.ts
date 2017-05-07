@@ -11,7 +11,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace L4_Canvas {
 
     var aufgabe6a: any;
-    /*(function(aufgabe6a: any): any {*/
+    (function(aufgabe6a: any): any {
 
         let crc2: CanvasRenderingContext2D;
         let canvas: HTMLCanvasElement;
@@ -455,5 +455,5 @@ namespace L4_Canvas {
                         break;
                 }
             }
-        } /*})(aufgabe6a || (aufgabe6a = {}));*/
+        } })(aufgabe6a || (aufgabe6a = {}));
 }
