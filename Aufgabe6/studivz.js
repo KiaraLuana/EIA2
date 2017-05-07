@@ -51,9 +51,6 @@ var StudiVZ;
         if (data[4] == "1") {
             gender = "männlich";
         }
-        /*else {
-            gender = "Bitte 0 oder 1 eingeben";
-        }*/
         students.push(student);
         return "Gespeicherte Daten:\n"
             + "\nMatrikelnummer: " + student.matrikel
@@ -67,7 +64,7 @@ var StudiVZ;
         for (let i = 0; i < students.length; i++) {
             var gender = students[i].geschlecht ? "weiblich" : "männlich";
             if (students[i].matrikel == _matrikel) {
-                return "Gespeicherte Daten:\n"
+                return "Unter der Matrikelnummer " + students[i].matrikel + " wurden folgende Daten gespeichert:\n"
                     + "\nMatrikelnummer: " + students[i].matrikel
                     + "\nName: " + students[i].name
                     + "\nVorname: " + students[i].vorname
