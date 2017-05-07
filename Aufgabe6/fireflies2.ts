@@ -21,6 +21,7 @@ namespace L4_Canvas {
         let startFirefly: any;
         let xJar: number = 520;
         let yJar: number = 345;
+        let fireflyCol: string[] = ["#fffacd", "FBBBB9", "#6AFB92"];
 
 
         window.addEventListener("load", init);
@@ -42,7 +43,8 @@ namespace L4_Canvas {
             //Glühwürmchen Startposition
 
             for (let i: number = 0; i < n; i++) {
-                startFirefly = { x: xJar, y: yJar, c: "#fffacd", b: "#FFFFFF"  };
+                let randomCol: string = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
+                startFirefly = { x: xJar, y: yJar, c: randomCol };
                 firefly[i] = startFirefly;
             }
 
@@ -156,7 +158,8 @@ namespace L4_Canvas {
 
 
         function addFirefly(): void {
-            let newFirefly: any = { x: xJar, y: yJar, c: "#fffacd", b: "#FFFFFF"};
+            let randomCol: string = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
+            let newFirefly: any = { x: xJar, y: yJar, c: randomCol };
             firefly.push(newFirefly);
             n++;
             console.log("Add");
@@ -166,11 +169,11 @@ namespace L4_Canvas {
 
         function drawFirefly(firefly: any): void {
             crc2.beginPath();
-            crc2.fillStyle = startFirefly.c;
-            crc2.strokeStyle = startFirefly.c;
+            crc2.fillStyle = firefly.c;
+            crc2.strokeStyle = firefly.c;
             crc2.moveTo(firefly.x, firefly.y);
             crc2.arc(firefly.x, firefly.y, 5, 0 * Math.PI, 2 * Math.PI);
-            crc2.shadowColor = startFirefly.b;
+            crc2.shadowColor = "#FFFFFF";
             crc2.shadowBlur = 20;
             crc2.shadowOffsetX = 0;
             crc2.shadowOffsetY = 0;
