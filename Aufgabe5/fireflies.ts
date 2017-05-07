@@ -127,15 +127,15 @@ namespace L4_Canvas {
             //Übergänge - Canvasrand
 
             if (x[i] < 0) {
-                x[i] = 600;
+                x[i] = canvas.width;
             }
-            if (x[i] > 600) {
+            if (x[i] > canvas.width) {
                 x[i] = 0;
             }
             if (y[i] < 0) {
-                y[i] = 450;
+                y[i] = canvas.height;
             }
-            if (y[i] > 450) {
+            if (y[i] > canvas.height) {
                 y[i] = 0;
             }
             drawFirefly(x[i], y[i]);
