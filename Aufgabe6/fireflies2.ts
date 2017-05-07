@@ -5,6 +5,8 @@ Matrikel: 254140
 Datum: 07.05.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+Dieser Code wurde mit Hilfestellung von Moritz Giuliani erstellt.
 */
 
 
@@ -21,7 +23,7 @@ namespace L4_Canvas {
         let startFirefly: any;
         let xJar: number = 520;
         let yJar: number = 345;
-        let fireflyCol: string[] = ["#fffacd", "FBBBB9", "#6AFB92"];
+        let fireflyCol: string[] = ["#fffacd", "#E3E4FA", "#FFFFFF"];
 
 
         window.addEventListener("load", init);
@@ -44,7 +46,7 @@ namespace L4_Canvas {
 
             for (let i: number = 0; i < n; i++) {
                 let randomCol: string = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
-                startFirefly = { x: xJar, y: yJar, c: randomCol };
+                startFirefly = { x: xJar, y: yJar, c: randomCol, b: "#FFFFFF" };
                 firefly[i] = startFirefly;
             }
 
@@ -159,7 +161,7 @@ namespace L4_Canvas {
 
         function addFirefly(): void {
             let randomCol: string = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
-            let newFirefly: any = { x: xJar, y: yJar, c: randomCol };
+            let newFirefly: any = { x: xJar, y: yJar, c: randomCol, b: "#FFFFFF" };
             firefly.push(newFirefly);
             n++;
             console.log("Add");
@@ -173,7 +175,7 @@ namespace L4_Canvas {
             crc2.strokeStyle = firefly.c;
             crc2.moveTo(firefly.x, firefly.y);
             crc2.arc(firefly.x, firefly.y, 5, 0 * Math.PI, 2 * Math.PI);
-            crc2.shadowColor = "#FFFFFF";
+            crc2.shadowColor = firefly.b;
             crc2.shadowBlur = 20;
             crc2.shadowOffsetX = 0;
             crc2.shadowOffsetY = 0;
