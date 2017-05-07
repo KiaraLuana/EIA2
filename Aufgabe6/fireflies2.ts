@@ -42,7 +42,7 @@ namespace L4_Canvas {
             //Glühwürmchen Startposition
 
             for (let i: number = 0; i < n; i++) {
-                startFirefly = { x: xJar, y: yJar };
+                startFirefly = { x: xJar, y: yJar, c: "#fffacd", b: "#FFFFFF"  };
                 firefly[i] = startFirefly;
             }
 
@@ -120,24 +120,26 @@ namespace L4_Canvas {
             //Flugverhalten
 
 
-            for (let i: number = 0; i < firefly; i++) {
+            for (let i: number = 0; i < n; i++) {
                 firefly[i].x += Math.random() * 3 - 5;
                 firefly[i].y += Math.random() * 20 - 12;
                 drawFirefly(firefly[i]);
 
-                if (firefly.x < 0) {
-                    firefly.x = canvas.width;
+
+                //Übergänge - Canvasrand
+
+                if (firefly[i].x < 0) {
+                    firefly[i].x = canvas.width;
                 }
-                if (firefly.x > canvas.width) {
-                    firefly.x = 0;
+                if (firefly[i].x > canvas.width) {
+                    firefly[i].x = 0;
                 }
-                if (firefly.y < 0) {
-                    firefly.y = canvas.height;
+                if (firefly[i].y < 0) {
+                    firefly[i].y = canvas.height;
                 }
-                if (firefly.y > canvas.height) {
-                    firefly.y = 0;
+                if (firefly[i].y > canvas.height) {
+                    firefly[i].y = 0;
                 }
-                drawFirefly(firefly[i]);
             }
 
 
@@ -147,16 +149,15 @@ namespace L4_Canvas {
             canvas.addEventListener("push", addFirefly);
 
 
-            //Übergänge - Canvasrand
-
+            window.setTimeout(animation, 80);
 
         }
 
-        window.setTimeout(animation, 80);
+
 
         function addFirefly(): void {
-            firefly.x.push(520);
-            firefly.y.push(345);
+            let newFirefly: any = { x: xJar, y: yJar, c: "#fffacd", b: "#FFFFFF"};
+            firefly.push(newFirefly);
             n++;
             console.log("Add");
         }
@@ -165,11 +166,11 @@ namespace L4_Canvas {
 
         function drawFirefly(firefly: any): void {
             crc2.beginPath();
-            crc2.fillStyle = "#fffacd";
-            crc2.strokeStyle = "#fffacd";
+            crc2.fillStyle = startFirefly.c;
+            crc2.strokeStyle = startFirefly.c;
             crc2.moveTo(firefly.x, firefly.y);
             crc2.arc(firefly.x, firefly.y, 5, 0 * Math.PI, 2 * Math.PI);
-            crc2.shadowColor = "#FFFFFF";
+            crc2.shadowColor = startFirefly.b;
             crc2.shadowBlur = 20;
             crc2.shadowOffsetX = 0;
             crc2.shadowOffsetY = 0;
