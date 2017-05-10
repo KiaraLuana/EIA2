@@ -11,14 +11,18 @@ Dieser Code wurde mit Hilfestellung von Moritz Giuliani erstellt.
 
 
 namespace L4_Canvas {
-
-    var aufgabe6a: any;
-    (function(aufgabe6a: any): any {
-
+    
+        interface Firefly {
+            x: number;
+            y: number;
+            c: string;
+            b: string;    
+        }
+    
         let crc2: CanvasRenderingContext2D;
         let canvas: HTMLCanvasElement;
         let background: ImageData;
-        let firefly: any = [];
+        let firefly: Firefly[] = [];
         let n: number = 10;
         let startFirefly: any;
         let xJar: number = 520;
@@ -464,5 +468,5 @@ namespace L4_Canvas {
                 }
             }
         }
-    })(aufgabe6a || (aufgabe6a = {}));
+  
 }
