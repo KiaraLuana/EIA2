@@ -50,7 +50,7 @@ namespace StudiVZ {
             kommentar: data[5]
         };
 
-        let gender: any;
+        let gender: string;
         if (data[4] == " 0") {
             gender = "weiblich";
         }
@@ -79,7 +79,7 @@ namespace StudiVZ {
 
     function queryData(_matrikel: number): string {
         for (let i: number = 0; i < students.length; i++) {
-            var gender: any = students[i].geschlecht ? "weiblich" : "männlich";
+            var gender: string = students[i].geschlecht ? "weiblich" : "männlich";
             if (students[i].matrikel == _matrikel) {
                 return "Unter der Matrikelnummer " + students[i].matrikel + " wurden folgende Daten gespeichert:\n"
                     + "\nMatrikelnummer: " + students[i].matrikel
