@@ -8,12 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var L7_Klassen;
 (function (L7_Klassen) {
-    let crc2;
     let canvas;
     let background;
-    let firefly = [];
-    let n = 10;
-    let startFirefly;
     let xJar = 520;
     let yJar = 345;
     let fireflyCol = ["#fffacd", "#E3E4FA", "#FFFFFF"];
@@ -25,25 +21,19 @@ var L7_Klassen;
         console.log("Initialisierung");
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        L7_Klassen.crc2 = canvas.getContext("2d");
+        console.log(L7_Klassen.crc2);
         drawCanvas();
-        //Glühwürmchen Startposition
-        for (let i = 0; i < n; i++) {
-            let randomCol = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
-            startFirefly = { x: xJar, y: yJar, c: randomCol, b: "#FFFFFF" };
-            firefly[i] = startFirefly;
-        }
         window.setTimeout(animation, 20);
     }
-    //Gesamtes Bild
+    //Hintergrund
     function drawCanvas() {
         //Himmel
-        crc2.fillStyle = "#131354";
-        crc2.fillRect(0, 0, canvas.width, canvas.height);
+        L7_Klassen.crc2.fillStyle = "#131354";
+        L7_Klassen.crc2.fillRect(0, 0, canvas.width, canvas.height);
         //Wiese
-        crc2.fillStyle = "#54B863";
-        crc2.fillRect(0, 250, 600, 250);
+        L7_Klassen.crc2.fillStyle = "#54B863";
+        L7_Klassen.crc2.fillRect(0, 250, 600, 250);
         //Stroke Color - Fill Color
         drawMoon(500, 50, "#FFFFFF", "#FFFFFF");
         drawBigMountain(70, 250, "#b3b3b3", "#262626");
@@ -77,30 +67,21 @@ var L7_Klassen;
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
         drawFlowerField(400, 600, 260, 400, 5);
-        background = crc2.getImageData(0, 0, 600, 450);
+        //Glühwürmchen
+        for (let i = 0; i < nFirefly; i++) {
+            let f = new L7_Klassen.Firefly(xJar, yJar);
+            fireflies[i] = f;
+        }
+        background = L7_Klassen.crc2.getImageData(0, 0, 600, 450);
     }
     //Animation
     function animation() {
-        crc2.putImageData(background, 0, 0);
+        L7_Klassen.crc2.putImageData(background, 0, 0);
         console.log("Animate called");
-        //Flugverhalten
-        for (let i = 0; i < n; i++) {
-            firefly[i].x += Math.random() * 3 - 5;
-            firefly[i].y += Math.random() * 20 - 12;
-            drawFirefly(firefly[i]);
-            //Übergänge - Canvasrand
-            if (firefly[i].x < 0) {
-                firefly[i].x = canvas.width;
-            }
-            if (firefly[i].x > canvas.width) {
-                firefly[i].x = 0;
-            }
-            if (firefly[i].y < 0) {
-                firefly[i].y = canvas.height;
-            }
-            if (firefly[i].y > canvas.height) {
-                firefly[i].y = 0;
-            }
+        //Firefly Positionsveränderung
+        for (let i = 0; i < fireflies.length; i++) {
+            let f = fireflies[i];
+            f.update();
         }
         //Neues Glühwürmchen 
         canvas.addEventListener("click", addFirefly);
@@ -108,239 +89,220 @@ var L7_Klassen;
         window.setTimeout(animation, 80);
     }
     function addFirefly() {
-        let randomCol = fireflyCol[Math.floor(Math.random() * fireflyCol.length)];
-        let newFirefly = { x: xJar, y: yJar, c: randomCol, b: "#FFFFFF" };
-        firefly.push(newFirefly);
-        n++;
-        console.log("Add");
-    }
-    //Glühwürmchen
-    function drawFirefly(firefly) {
-        crc2.beginPath();
-        crc2.fillStyle = firefly.c;
-        crc2.strokeStyle = firefly.c;
-        crc2.moveTo(firefly.x, firefly.y);
-        crc2.arc(firefly.x, firefly.y, 5, 0 * Math.PI, 2 * Math.PI);
-        crc2.shadowColor = firefly.b;
-        crc2.shadowBlur = 20;
-        crc2.shadowOffsetX = 0;
-        crc2.shadowOffsetY = 0;
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        let f = new L7_Klassen.Firefly(xJar, yJar);
+        fireflies.push(f);
+        console.log("Neue Firefly erstellt");
     }
     function drawJar(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.fillRect(_x, _y, 30, 40);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.fillRect(_x, _y, 30, 40);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawLid(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 15, _y + 25);
-        crc2.lineWidth = 2;
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.lineTo(_x + 15, _y + 25);
+        L7_Klassen.crc2.lineWidth = 2;
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     //Umgebung
     function drawMoon(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 25, 0 * Math.PI, 2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 25, 0 * Math.PI, 2 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawSmallMountain(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 50, _y - 75);
-        crc2.lineTo(_x + 100, _y + 0);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.lineTo(_x + 50, _y - 75);
+        L7_Klassen.crc2.lineTo(_x + 100, _y + 0);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawMiddleMountain(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 100, _y - 150);
-        crc2.lineTo(_x + 200, _y + 0);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.lineTo(_x + 100, _y - 150);
+        L7_Klassen.crc2.lineTo(_x + 200, _y + 0);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawBigMountain(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 150, _y - 200);
-        crc2.lineTo(_x + 300, _y + 0);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.lineTo(_x + 150, _y - 200);
+        L7_Klassen.crc2.lineTo(_x + 300, _y + 0);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawCloud(_x, _y, _strokeColor, _fillColor) {
-        crc2.fillStyle = _fillColor;
-        crc2.beginPath();
-        crc2.arc(_x, _y, 30, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x - 30, _y + 1, 20, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x - 25, _y + 15, 20, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x, _y + 20, 25, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x + 25, _y + 15, 25, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.arc(_x + 30, _y + 1, 25, 0, 2 * Math.PI);
-        crc2.fill();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.arc(_x, _y, 30, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.arc(_x - 30, _y + 1, 20, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.arc(_x - 25, _y + 15, 20, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.arc(_x, _y + 20, 25, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.arc(_x + 25, _y + 15, 25, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.arc(_x + 30, _y + 1, 25, 0, 2 * Math.PI);
+        L7_Klassen.crc2.fill();
     }
     function drawPond(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.quadraticCurveTo(350, 250, 150, 350);
-        crc2.quadraticCurveTo(200, 450, 400, 350);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.quadraticCurveTo(350, 250, 150, 350);
+        L7_Klassen.crc2.quadraticCurveTo(200, 450, 400, 350);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     //Blumen
     function drawLilypad(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 20, 0 * Math.PI, 1.8 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 20, 0 * Math.PI, 1.8 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawWaterlily(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 10, -0.2 * Math.PI, 1.2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 10, -0.2 * Math.PI, 1.2 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawDandelion(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawStalk(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 0, _y + 50);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.lineTo(_x + 0, _y + 50);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
     }
     function drawMoonflower1(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawMoonflower2(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 10, 0 * Math.PI, 2 * Math.PI);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.stroke();
     }
     function drawPetal(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 20, 1.1 * Math.PI, 1.9 * Math.PI, true);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 20, 1.1 * Math.PI, 1.9 * Math.PI, true);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
     }
     function drawPinkfan(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
     }
     function drawGoldenrain(_x, _y, _strokeColor, _fillColor) {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
+        L7_Klassen.crc2.beginPath();
+        L7_Klassen.crc2.fillStyle = _fillColor;
+        L7_Klassen.crc2.strokeStyle = _strokeColor;
+        L7_Klassen.crc2.moveTo(_x, _y);
+        L7_Klassen.crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
+        L7_Klassen.crc2.stroke();
+        L7_Klassen.crc2.fill();
+        L7_Klassen.crc2.closePath();
     }
     //Blumenwiese
     function drawFlowerField(xMin, xMax, yMin, yMax, flowers) {
@@ -381,5 +343,5 @@ var L7_Klassen;
             }
         }
     }
-})(L7_Klassen || (L7_Klassen = {}));
+})(L7_Klassen || (L7_Klassen = {})); // Namespace Ende
 //# sourceMappingURL=main.js.map

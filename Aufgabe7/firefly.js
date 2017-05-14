@@ -8,7 +8,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var L7_Klassen;
 (function (L7_Klassen) {
-    let crc2;
     class Firefly {
         constructor(_x, _y) {
             this.fireflyCol = ["#fffacd", "#E3E4FA", "#FFFFFF"];
@@ -23,20 +22,20 @@ var L7_Klassen;
             this.draw();
         }
         draw() {
-            crc2.beginPath();
-            crc2.fillStyle = this.color;
-            crc2.strokeStyle = this.color;
-            crc2.moveTo(this.x, this.y);
-            crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
-            crc2.shadowColor = "#ffffff";
-            crc2.shadowBlur = 20;
-            crc2.shadowOffsetX = 0;
-            crc2.shadowOffsetY = 0;
-            crc2.stroke();
-            crc2.fill();
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
+            L7_Klassen.crc2.beginPath();
+            L7_Klassen.crc2.fillStyle = this.color;
+            L7_Klassen.crc2.strokeStyle = this.color;
+            L7_Klassen.crc2.moveTo(this.x, this.y);
+            L7_Klassen.crc2.arc(this.x, this.y, 5, 0 * Math.PI, 2 * Math.PI);
+            L7_Klassen.crc2.shadowColor = "#ffffff";
+            L7_Klassen.crc2.shadowBlur = 20;
+            L7_Klassen.crc2.shadowOffsetX = 0;
+            L7_Klassen.crc2.shadowOffsetY = 0;
+            L7_Klassen.crc2.stroke();
+            L7_Klassen.crc2.fill();
+            L7_Klassen.crc2.closePath();
+            L7_Klassen.crc2.fill();
+            L7_Klassen.crc2.stroke();
         }
         move() {
             this.x += Math.random() * 3 - 5;
@@ -48,5 +47,5 @@ var L7_Klassen;
         }
     }
     L7_Klassen.Firefly = Firefly;
-})(L7_Klassen || (L7_Klassen = {}));
+})(L7_Klassen || (L7_Klassen = {})); // Namespace Ende
 //# sourceMappingURL=firefly.js.map
