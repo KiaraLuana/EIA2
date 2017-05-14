@@ -39,7 +39,7 @@ namespace L7_Klassen {
             crc2.stroke();
             crc2.fill();
             crc2.closePath();
-
+            //Stalk
             crc2.beginPath();
             crc2.fillStyle = this.color;
             crc2.strokeStyle = this.color;

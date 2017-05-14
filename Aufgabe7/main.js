@@ -15,6 +15,8 @@ var L7_Klassen;
     let fireflyCol = ["#fffacd", "#E3E4FA", "#FFFFFF"];
     let fireflies = [];
     let nFirefly = 10;
+    let nFlowers = 5;
+    let flowers = [];
     window.addEventListener("load", init);
     //Initialisierung
     function init(_event) {
@@ -58,12 +60,6 @@ var L7_Klassen;
         drawStalk(250, 370, "#268C4C", "#268C4C");
         drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
         drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
-        drawStalk(280, 235, "#268C4C", "#268C4C");
-        drawPinkfan(280, 240, "#ffe6ea", "#ffe6ea");
-        drawStalk(190, 385, "#268C4C", "#268C4C");
-        drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
-        drawStalk(380, 255, "#268C4C", "#268C4C");
-        drawGoldenrain(380, 260, "#EDE275", "#EDE275");
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
         drawFlowerField(400, 600, 260, 400, 5);
@@ -71,6 +67,11 @@ var L7_Klassen;
         for (let i = 0; i < nFirefly; i++) {
             let f = new L7_Klassen.Firefly(xJar, yJar);
             fireflies[i] = f;
+        }
+        //Blumen
+        for (let i = 0; i < nFlowers; i++) {
+            let fl = new L7_Klassen.Fan(100, 100);
+            flowers[i] = fl;
         }
         background = L7_Klassen.crc2.getImageData(0, 0, 600, 450);
     }
@@ -284,26 +285,6 @@ var L7_Klassen;
         L7_Klassen.crc2.fill();
         L7_Klassen.crc2.closePath();
     }
-    function drawPinkfan(_x, _y, _strokeColor, _fillColor) {
-        L7_Klassen.crc2.beginPath();
-        L7_Klassen.crc2.fillStyle = _fillColor;
-        L7_Klassen.crc2.strokeStyle = _strokeColor;
-        L7_Klassen.crc2.moveTo(_x, _y);
-        L7_Klassen.crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        L7_Klassen.crc2.stroke();
-        L7_Klassen.crc2.fill();
-        L7_Klassen.crc2.closePath();
-    }
-    function drawGoldenrain(_x, _y, _strokeColor, _fillColor) {
-        L7_Klassen.crc2.beginPath();
-        L7_Klassen.crc2.fillStyle = _fillColor;
-        L7_Klassen.crc2.strokeStyle = _strokeColor;
-        L7_Klassen.crc2.moveTo(_x, _y);
-        L7_Klassen.crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        L7_Klassen.crc2.stroke();
-        L7_Klassen.crc2.fill();
-        L7_Klassen.crc2.closePath();
-    }
     //Blumenwiese
     function drawFlowerField(xMin, xMax, yMin, yMax, flowers) {
         console.log("Ein Blumenfeld von: ", xMin, "bis: ", xMax, "(Horizontal) und von: ", yMin, "bis: ", yMax, "(Vertical)");
@@ -331,14 +312,6 @@ var L7_Klassen;
                     drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
                     drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 3:
-                    drawStalk(_x, _y, "#268C4C", "#268C4C");
-                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
-                    break;
-                case 4:
-                    drawStalk(_x, _y, "#268C4C", "#268C4C");
-                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
                     break;
             }
         }

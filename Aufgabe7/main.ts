@@ -23,6 +23,10 @@ namespace L7_Klassen {
     let fireflyCol: string[] = ["#fffacd", "#E3E4FA", "#FFFFFF"];
     let fireflies: Firefly[] = [];
     let nFirefly: number = 10;
+    let nFlowers: number = 5;
+    let flowers: Fan[] = [];
+
+    
 
 
     window.addEventListener("load", init);
@@ -94,12 +98,7 @@ namespace L7_Klassen {
         drawStalk(250, 370, "#268C4C", "#268C4C");
         drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
         drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
-        drawStalk(280, 235, "#268C4C", "#268C4C");
-        drawPinkfan(280, 240, "#ffe6ea", "#ffe6ea");
-        drawStalk(190, 385, "#268C4C", "#268C4C");
-        drawPinkfan(190, 385, "#ffe6ea", "#ffe6ea");
-        drawStalk(380, 255, "#268C4C", "#268C4C");
-        drawGoldenrain(380, 260, "#EDE275", "#EDE275");
+       
 
 
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
@@ -111,6 +110,13 @@ namespace L7_Klassen {
         for (let i: number = 0; i < nFirefly; i++) {
             let f: Firefly = new Firefly(xJar, yJar);
             fireflies[i] = f;
+        }
+        
+        
+        //Blumen
+        for (let i: number = 0; i < nFlowers; i++) {
+            let fl: Fan = new Fan(100, 100);
+            flowers[i] = fl;
         }
 
         background = crc2.getImageData(0, 0, 600, 450);
@@ -384,29 +390,6 @@ namespace L7_Klassen {
     }
 
 
-    function drawPinkfan(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-    }
-
-
-    function drawGoldenrain(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
-        crc2.moveTo(_x, _y);
-        crc2.arc(_x, _y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
-        crc2.stroke();
-        crc2.fill();
-        crc2.closePath();
-    }
-
 
 
     //Blumenwiese
@@ -444,14 +427,6 @@ namespace L7_Klassen {
                     drawStalk(_x, _y, "#268C4C", "#268C4C");
                     drawMoonflower2(_x, _y, "#CCCCFF", "#CCCCFF");
                     drawPetal(_x, _y, "#FFFFFF", "#FFFFFF");
-                    break;
-                case 3:
-                    drawStalk(_x, _y, "#268C4C", "#268C4C");
-                    drawPinkfan(_x, _y, "#ffe6ea", "#ffe6ea");
-                    break;
-                case 4:
-                    drawStalk(_x, _y, "#268C4C", "#268C4C");
-                    drawGoldenrain(_x, _y, "#EDE275", "#EDE275");
                     break;
             }
         }

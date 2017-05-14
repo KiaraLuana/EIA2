@@ -29,6 +29,7 @@ var L7_Klassen;
             L7_Klassen.crc2.stroke();
             L7_Klassen.crc2.fill();
             L7_Klassen.crc2.closePath();
+            //Stalk
             L7_Klassen.crc2.beginPath();
             L7_Klassen.crc2.fillStyle = this.color;
             L7_Klassen.crc2.strokeStyle = this.color;
