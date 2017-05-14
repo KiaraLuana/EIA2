@@ -13,9 +13,9 @@ var L7_Klassen;
             this.fanCol = ["#ffe6ea", "#EDE275"];
             console.log("Fächerblume konstruiert");
             this.setRandomStyle();
-            this.setRandomPosition();
-            this.x = _x;
-            this.y = _y;
+            this.setRandomPosition(_x, _y);
+            //this.x = _x;
+            //this.y = _y;
         }
         update() {
             this.draw();
@@ -41,7 +41,7 @@ var L7_Klassen;
         setRandomStyle() {
             this.color = this.fanCol[Math.floor(Math.random() * this.fanCol.length)];
         }
-        setRandomPosition() {
+        setRandomPosition(_x, _y) {
             this.x = Math.random() * 200;
             this.y = Math.random() * 200;
         }
