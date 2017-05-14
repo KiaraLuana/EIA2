@@ -40,6 +40,18 @@ var L7_Klassen;
         move() {
             this.x += Math.random() * 3 - 5;
             this.y += Math.random() * 20 - 12;
+            if (this.x < 0) {
+                this.x = L7_Klassen.crc2.canvas.width;
+            }
+            if (this.x > L7_Klassen.crc2.canvas.width) {
+                this.x = 0;
+            }
+            if (this.y < 0) {
+                this.y = L7_Klassen.crc2.canvas.height;
+            }
+            if (this.y > L7_Klassen.crc2.canvas.height) {
+                this.y = 0;
+            }
         }
         setRandomStyle() {
             this.size = Math.random() * 30 + 10;
