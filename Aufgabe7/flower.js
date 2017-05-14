@@ -8,21 +8,44 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var L7_Klassen;
 (function (L7_Klassen) {
-    let crc2;
-    class Dandelion {
+    class Fan {
+        constructor(_x, _y) {
+            this.fanCol = ["#ffe6ea", "#EDE275"];
+            console.log("Fächerblume konstruiert");
+            this.setRandomStyle();
+            this.setRandomPosition();
+            this.x = _x;
+            this.y = _y;
+        }
+        update() {
+            this.draw();
+        }
+        draw() {
+            L7_Klassen.crc2.beginPath();
+            L7_Klassen.crc2.fillStyle = this.color;
+            L7_Klassen.crc2.strokeStyle = this.color;
+            L7_Klassen.crc2.moveTo(this.x, this.y);
+            L7_Klassen.crc2.arc(this.x, this.y, 25, 1.1 * Math.PI, 1.9 * Math.PI, false);
+            L7_Klassen.crc2.stroke();
+            L7_Klassen.crc2.fill();
+            L7_Klassen.crc2.closePath();
+            L7_Klassen.crc2.beginPath();
+            L7_Klassen.crc2.fillStyle = this.color;
+            L7_Klassen.crc2.strokeStyle = this.color;
+            L7_Klassen.crc2.moveTo(this.x, this.y);
+            L7_Klassen.crc2.lineTo(this.x + 0, this.y + 50);
+            L7_Klassen.crc2.stroke();
+            L7_Klassen.crc2.fill();
+            L7_Klassen.crc2.closePath();
+        }
+        setRandomStyle() {
+            this.color = this.fanCol[Math.floor(Math.random() * this.fanCol.length)];
+        }
+        setRandomPosition() {
+            this.x = Math.random() * 200;
+            this.y = Math.random() * 200;
+        }
     }
-    L7_Klassen.Dandelion = Dandelion;
-    class Moonflower1 {
-    }
-    L7_Klassen.Moonflower1 = Moonflower1;
-    class Moonflower2 {
-    }
-    L7_Klassen.Moonflower2 = Moonflower2;
-    class Pinkfan {
-    }
-    L7_Klassen.Pinkfan = Pinkfan;
-    class GoldenRain {
-    }
-    L7_Klassen.GoldenRain = GoldenRain;
+    L7_Klassen.Fan = Fan;
 })(L7_Klassen || (L7_Klassen = {}));
 //# sourceMappingURL=flower.js.map
