@@ -174,10 +174,10 @@ function addFirefly(): void {
 //Glühwürmchen
 
 
-(let i: number = 0; i < nFirefly; i++) {
+for (let i: number = 0; i < nFirefly; i++) {
     let f: Firefly = new Firefly(xJar, yJar);
     fireflies[i] = f;
-};
+}
 
 function drawFirefly(firefly: any): void {
     crc2.beginPath();
