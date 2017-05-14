@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 7 - OO-Blumenwiese
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 13.05.2017
+Datum: 14.05.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */

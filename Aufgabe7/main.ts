@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 7 - OO-Blumenwiese
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 13.05.2017
+Datum: 14.05.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -23,10 +23,10 @@ namespace L7_Klassen {
     let fireflyCol: string[] = ["#fffacd", "#E3E4FA", "#FFFFFF"];
     let fireflies: Firefly[] = [];
     let nFirefly: number = 10;
-    let nFlowers: number = 5;
+    let nFlowers: number = 6;
     let flowers: Fan[] = [];
 
-    
+
 
 
     window.addEventListener("load", init);
@@ -98,12 +98,12 @@ namespace L7_Klassen {
         drawStalk(250, 370, "#268C4C", "#268C4C");
         drawMoonflower2(250, 368, "#CCCCFF", "#CCCCFF");
         drawPetal(250, 370, "#FFFFFF", "#FFFFFF");
-       
+
 
 
         //Blumenfelder (xMin, xMax, yMin, yMax, Anzahl)
         drawFlowerField(0, 150, 260, 400, 10);
-        drawFlowerField(400, 600, 260, 400, 5);
+
 
 
         //Glühwürmchen
@@ -111,12 +111,13 @@ namespace L7_Klassen {
             let f: Firefly = new Firefly(xJar, yJar);
             fireflies[i] = f;
         }
-        
-        
+
+
         //Blumen
         for (let i: number = 0; i < nFlowers; i++) {
-            let fl: Fan = new Fan(100, 100);
+            let fl: Fan = new Fan(410, 220);
             flowers[i] = fl;
+            fl.draw();
         }
 
         background = crc2.getImageData(0, 0, 600, 450);

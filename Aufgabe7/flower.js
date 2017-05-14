@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 7 - OO-Blumenwiese
 Name: Kiara Luana Oßwald
 Matrikel: 254140
-Datum: 13.05.2017
+Datum: 14.05.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -31,8 +31,8 @@ var L7_Klassen;
             L7_Klassen.crc2.closePath();
             //Stalk
             L7_Klassen.crc2.beginPath();
-            L7_Klassen.crc2.fillStyle = this.color;
-            L7_Klassen.crc2.strokeStyle = this.color;
+            L7_Klassen.crc2.fillStyle = "#268C4C";
+            L7_Klassen.crc2.strokeStyle = "#268C4C";
             L7_Klassen.crc2.moveTo(this.x, this.y);
             L7_Klassen.crc2.lineTo(this.x + 0, this.y + 50);
             L7_Klassen.crc2.stroke();
@@ -43,8 +43,8 @@ var L7_Klassen;
             this.color = this.fanCol[Math.floor(Math.random() * this.fanCol.length)];
         }
         setRandomPosition(_x, _y) {
-            this.x = Math.random() * 200;
-            this.y = Math.random() * 200;
+            this.x = Math.random() * 150 + _x;
+            this.y = Math.random() * 200 + _y;
         }
     }
     L7_Klassen.Fan = Fan;
