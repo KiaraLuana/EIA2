@@ -17,8 +17,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 <script type="text/javascript" src="ice.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower"
 	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Vibur"
-	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Sacramento"
 	rel="stylesheet">
 </head>
@@ -55,14 +53,14 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 			<input type="text" name="Name" placeholder="Name" required id="name">
 			<input type="text" name="Street" placeholder="Street" required id="street">
 			<input type="text" name="Location" placeholder="Location" required id="location">
-			<h2>Delivery</h2>
-			<select name="Delivery" id="delivery">
-				<option value="" disabled selected>Lieferart</option>
-				<option value="Foot">Per Sandalen-Bote (100% Öko)</option>
-				<option value="Express">Per Klassik-Vespa (100% Diesel)</option>
-			</select>
-			
 		</fieldset>
+		<fieldset id="delivery">
+		<h2>Delivery</h2>
+		<input type="radio" name="Options" value="option1" id="option1" checked="checked" />
+		<label for="radio1">Standard</label>
+		<input type="radio" name="Options" value="option2" id="option2" />
+		<label for="radio2">Premium</label>
+</fieldset>
 	</section>
 
 	<section>
@@ -73,12 +71,10 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 			<h2>Total:</h2>
 			<p id="total"></p>
 		</fieldset>
-		<a><button name="purchase" type="button" id=send>Order Now</button></a>
+		<a><button name="complete" type="button" id=send>Order Now</button></a>
 
 	</section>
 </aside>
-
-
 
 <body>
 </body>

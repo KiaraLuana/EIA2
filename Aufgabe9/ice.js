@@ -11,10 +11,10 @@ var Eisdieler;
     window.addEventListener("load", init);
     //GLOBAL VARIABLES
     let flavour;
-    let flavours = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio",
-        "Cinnamon", "Tiramisu", "Coconut", "Cookies",
-        "Coffee", "Caramel", "Bueno", "Rafaello",
-        "Almond", "Hazelnut"
+    let flavours = ["Vanilla ", "Chocolate ", "Stracciatella ", "Pistachio ",
+        "Cinnamon ", "Tiramisu ", "Coconut ", "Cookies ",
+        "Coffee ", "Caramel ", "Bueno ", "Rafaello ",
+        "Almond ", "Hazelnut "
     ];
     let inputflavour = [];
     let fruit;
@@ -22,10 +22,10 @@ var Eisdieler;
         "Pineapple", "Melon", "Cantaloupe", "Mango", "Kiwi", "Grapefruit", "Pomegranate"
     ];
     let topping;
-    let toppings = ["Whipped Cream", "Brittle", "Couverture"];
+    let toppings = ["Whipped Cream ", "Brittle ", "Couverture "];
     let inputtopping = [];
     let container;
-    let containers = ["Cone", "Bowl", "Brittle Cone"];
+    let containers = ["Cone ", "Bowl ", "Brittle Cone "];
     let inputcontainer = [];
     let order;
     let creation;
@@ -34,7 +34,6 @@ var Eisdieler;
     function init() {
         //Ini fieldsets
         flavour = document.getElementById("flavours");
-        fruit = document.getElementById("fruits");
         topping = document.getElementById("toppings");
         container = document.getElementById("containers");
         order = document.getElementById("order");
@@ -54,7 +53,7 @@ var Eisdieler;
         let name = document.getElementById("name");
         let street = document.getElementById("street");
         let location = document.getElementById("location");
-        let delivery = document.getElementById("delivery");
+        let delivery = 0;
         let container = 0;
         let scoop = 0;
         //Check for missing inputs
@@ -64,9 +63,6 @@ var Eisdieler;
             warning.push("Please enter your street \n");
         if (location.validity.valid == false)
             warning.push("Please enter your location \n");
-        //Delivery??
-        if (delivery.value != "Foot" && delivery.value != "Express")
-            warning.push("Please choose your preferred delivery option \n");
         //If no Ice selected???
         for (let i = 0; i < inputflavour.length; i++) {
             if (parseInt(inputflavour[i].value) > 0)

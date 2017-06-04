@@ -13,10 +13,10 @@ namespace Eisdieler {
     //GLOBAL VARIABLES
 
     let flavour: HTMLElement;
-    let flavours: string[] = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio",
-        "Cinnamon", "Tiramisu", "Coconut", "Cookies",
-        "Coffee", "Caramel", "Bueno", "Rafaello",
-        "Almond", "Hazelnut"
+    let flavours: string[] = ["Vanilla ", "Chocolate ", "Stracciatella ", "Pistachio ",
+        "Cinnamon ", "Tiramisu ", "Coconut ", "Cookies ",
+        "Coffee ", "Caramel ", "Bueno ", "Rafaello ",
+        "Almond ", "Hazelnut "
     ];
     let inputflavour: HTMLInputElement[] = [];
 
@@ -26,16 +26,17 @@ namespace Eisdieler {
     ];
 
     let topping: HTMLElement;
-    let toppings: string[] = ["Whipped Cream", "Brittle", "Couverture"];
+    let toppings: string[] = ["Whipped Cream ", "Brittle ", "Couverture "];
     let inputtopping: HTMLInputElement[] = [];
 
     let container: HTMLElement;
-    let containers: string[] = ["Cone", "Bowl", "Brittle Cone"];
+    let containers: string[] = ["Cone ", "Bowl ", "Brittle Cone "];
     let inputcontainer: HTMLInputElement[] = [];
 
     let order: HTMLElement;
     let creation: HTMLElement;
     let creations: HTMLElement;
+    
 
 
 
@@ -44,7 +45,6 @@ namespace Eisdieler {
 
         //Ini fieldsets
         flavour = document.getElementById("flavours");
-        fruit = document.getElementById("fruits");
         topping = document.getElementById("toppings");
         container = document.getElementById("containers");
         order = document.getElementById("order");
@@ -70,7 +70,7 @@ namespace Eisdieler {
         let name: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
         let street: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
         let location: HTMLInputElement = <HTMLInputElement>document.getElementById("location");
-        let delivery: HTMLInputElement = <HTMLInputElement>document.getElementById("delivery");
+        let delivery: number = 0;
         let container: number = 0;
         let scoop: number = 0;
 
@@ -82,9 +82,7 @@ namespace Eisdieler {
         if (location.validity.valid == false)
             warning.push("Please enter your location \n");
 
-        //Delivery??
-        if (delivery.value != "Foot" && delivery.value != "Express")
-            warning.push("Please choose your preferred delivery option \n");
+       
 
 
         //If no Ice selected???
