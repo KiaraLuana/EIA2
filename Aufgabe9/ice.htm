@@ -1,0 +1,84 @@
+<!--
+Aufgabe: Aufgabe 9 - FormElements
+Name: Kiara Luana Oßwald
+Matrikel: 254140
+Datum: 04.06.2017
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Eisdieler</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script type="text/javascript" src="ice.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Vibur"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sacramento"
+	rel="stylesheet">
+</head>
+
+<header>
+	<h1>Luanas</h1>
+	<img src="imgs/ice2.png">
+</header>
+
+<main>
+<section>
+<h2 class="heading2">Create your own ice cream!</h2>
+	<fieldset id="flavours">
+		<h2>Flavours</h2>	
+	</fieldset>
+	<fieldset id="toppings">
+	<h2>Toppings</h2>
+	</fieldset>
+	<fieldset id="containers">
+		<h2>Container</h2>
+	</fieldset>
+</section>
+</main>
+
+
+
+<!-- CART & PURCHASE (ASIDE) -->
+<aside>
+	<section>
+		<fieldset id="address">
+			<h2>Your Address</h2>
+			
+			<input type="text" name="Name" placeholder="Name" required id="name">
+			<input type="text" name="Street" placeholder="Street" required id="street">
+			<input type="text" name="Location" placeholder="Location" required id="location">
+			<h2>Delivery</h2>
+			<select name="Delivery" id="delivery">
+				<option value="" disabled selected>Lieferart</option>
+				<option value="Foot">Per Sandalen-Bote (100% Öko)</option>
+				<option value="Express">Per Klassik-Vespa (100% Diesel)</option>
+			</select>
+			
+		</fieldset>
+	</section>
+
+	<section>
+
+		<fieldset id="order">
+			<h2>Your Order:</h2>
+			<p id="creation"></p>
+			<h2>Total:</h2>
+			<p id="total"></p>
+		</fieldset>
+		<button name="purchase" type="button" id=send>Order Now</button>
+
+	</section>
+</aside>
+
+
+
+<body>
+</body>
+</html>
