@@ -1,0 +1,110 @@
+/*
+Aufgabe: Aufgabe 9 - FormElements
+Name: Kiara Luana Oßwald
+Matrikel: 254140
+Datum: 04.06.2017
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 16em;
+	background-color: #CCFFFF;
+	text-align: center;
+}
+
+
+.heading {
+	font-family: 'Vibur', cursive;
+	font-size: 2.5em;
+	color: #FFFFFF;
+}
+
+.heading2 {
+	color: #000000;
+}
+
+
+body {
+	font-family: 'Indie Flower';
+}
+
+h1 {
+	color: #FFFFFF;
+	font-family: 'Sacramento', cursive;
+	font-size: 8em;
+}
+
+h2 {
+	color: #FFFFFF;
+	font-family: 'Indie Flower';
+	font-size: 2em;
+}
+
+h3 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+hr {
+	margin-top: 1em;
+}
+
+
+fieldset {
+	background-color: #FFDFDD;
+	padding: 1em;
+}
+
+main {
+	float: left;
+	width: 60%;
+	margin-left: 5em;
+	margin-top: 5em;
+	margin-right: 1em;
+	margin-bottom: 4em;
+}
+
+aside {
+	float: left;
+	width: 20%;
+	margin-right: 2em;
+	margin-top: 8em;
+	margin-left: 1em;
+	margin-bottom: 4em;
+}
+
+
+
+label::after {
+	content: "";
+	display: block;
+}
+
+
+button {
+	border-radius: 25px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	font-family: 'Quicksand', sans-serif;
+	font-variant: small-caps;
+	font-size: small;
+	text-align: center;
+	padding: 1em;
+	margin-left: 4.3em;
+	margin-top: 1em;
+}
+
+#select1 {
+	margin-top: 1.5em;
+}
+
