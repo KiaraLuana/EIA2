@@ -5,11 +5,13 @@ Matrikel: 254140
 Datum: 04.06.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+Dieser Code wurde zusammen mit Moritz Giuliani erstellt.
 */
 var Eisdieler;
 (function (Eisdieler) {
     window.addEventListener("load", init);
-    //GLOBAL VARIABLES
+    //Variablen
     let flavour;
     let flavours = ["Vanilla ", "Chocolate ", "Stracciatella ", "Pistachio ",
         "Cinnamon ", "Tiramisu ", "Coconut ", "Cookies ",
@@ -30,25 +32,21 @@ var Eisdieler;
     let order;
     let creation;
     let creations;
-    //INITIALIZE
+    //Initialisierung
     function init() {
-        //Ini fieldsets
         flavour = document.getElementById("flavours");
         topping = document.getElementById("toppings");
         container = document.getElementById("containers");
         order = document.getElementById("order");
         creation = document.getElementById("send");
-        //Ini ice selections
         icecreamKit();
-        //Ini change listener
         flavour.addEventListener("change", calculateOrder);
         topping.addEventListener("change", calculateOrder);
         container.addEventListener("change", calculateOrder);
-        //Ini check listener
-        creation.addEventListener("click", checkInput);
+        creation.addEventListener("click", orderInput);
     }
     //CHECK ORDER
-    function checkInput() {
+    function orderInput() {
         let warning = ["Invalid Entry: \n"];
         let name = document.getElementById("name");
         let street = document.getElementById("street");
@@ -56,38 +54,38 @@ var Eisdieler;
         let delivery = 0;
         let container = 0;
         let scoop = 0;
-        //Check for missing inputs
+        //Fehlende Angaben - Kunde
         if (name.validity.valid == false)
             warning.push("Please enter your name \n");
         if (street.validity.valid == false)
             warning.push("Please enter your street \n");
         if (location.validity.valid == false)
             warning.push("Please enter your location \n");
-        //If no Ice selected???
+        //Eiscreme
         for (let i = 0; i < inputflavour.length; i++) {
             if (parseInt(inputflavour[i].value) > 0)
                 scoop += 1;
         }
         if (scoop == 0)
             warning.push("No ice cream selected\n");
-        //If no container (radio) checked
+        //Darbietung
         for (let i = 0; i < inputcontainer.length; i++) {
             if (inputcontainer[i].checked)
                 container += 1;
         }
         if (container == 0)
             warning.push("No ice container selected\n");
-        //Create warning message
+        //Bestellung unvollständig
         if (warning.length > 1) {
             for (let i = 0; i < warning.length; i++)
-                warning.push; //can't find mistake
+                warning.push;
             alert(warning.join(""));
         }
         else {
             alert("Your order has been submitted\n");
         }
     }
-    //Create Ice Selection
+    //Eiscreme Auswahl
     function icecreamKit() {
         for (let i = 0; i < flavours.length; i++) {
             createInput(flavours[i]);
@@ -99,86 +97,76 @@ var Eisdieler;
             createRadio(containers[i]);
         }
     }
-    //Create Stepper
+    //Stepper
     function createInput(_sort) {
         let label = document.createElement("label");
         let input = document.createElement("input");
-        //Create values
         label.innerText = _sort;
         input.type = "number";
         input.min = "0";
         input.value = "0";
         label.id = _sort;
-        //Add values
         label.appendChild(input);
         flavour.appendChild(label);
         inputflavour.push(input);
     }
-    //Create Checkboxes
+    //Checkboxes
     function createCheckbox(_topping) {
         let label = document.createElement("label");
         let input = document.createElement("input");
-        //Create values
         input.type = "checkbox";
         label.id = _topping;
         label.innerText = _topping;
-        //Add values
         label.appendChild(input);
         topping.appendChild(label);
         inputtopping.push(input);
     }
-    //Create Radio Button
+    //Radio Buttons
     function createRadio(_darbietung) {
         let label = document.createElement("label");
         let input = document.createElement("input");
-        //Create values
         input.type = "radio";
         input.name = "container";
         label.innerText = _darbietung;
         input.required = true;
         label.id = _darbietung;
-        //Add values
         label.appendChild(input);
         container.appendChild(label);
         inputcontainer.push(input);
     }
-    //CHANGE ICE HANDLER
+    //Zusammenrechnen der Bestellung
     function calculateOrder() {
-        let total = 0; //total price amount
+        let total = 0;
         for (let i = 0; i < inputflavour.length; i++) {
-            total += parseInt(inputflavour[i].value); //add ice selection price
+            total += parseInt(inputflavour[i].value);
         }
         for (let i = 0; i < inputtopping.length; i++) {
             if (inputtopping[i].checked)
-                total += .25; //add topping price (40 cent)
+                total += .25;
         }
-        showOrder(total); //submit sum (parameter: total) to changeCart function
+        showOrder(total);
     }
-    //CHANGE CART
+    //Kreation + Bestellung des Kunden abfragen
     function showOrder(_sum) {
         creations = document.getElementById("creation");
         creations.innerText = "";
-        //Create selected Ice list
         for (let i = 0; i < inputflavour.length; i++) {
             if (parseInt(inputflavour[i].value) > 0) {
                 creations.innerText += (parseInt(inputflavour[i].value)) + " scoop(s) of " + flavours[i] + " " + "\n";
             }
         }
-        //Create selected topping list
         for (let i = 0; i < inputtopping.length; i++) {
             if (inputtopping[i].checked) {
                 creations.innerText += toppings[i] + "\n";
             }
         }
-        //Show selected container
         for (let i = 0; i < inputcontainer.length; i++) {
             if (inputcontainer[i].checked) {
                 creations.innerText += containers[i] + "\n";
             }
         }
-        //Show total price
-        let summeHtml = document.getElementById("total");
-        summeHtml.innerText = _sum.toString() + " €";
+        let completeSum = document.getElementById("total");
+        completeSum.innerText = _sum.toString() + " €";
     }
-})(Eisdieler || (Eisdieler = {})); // END OF NAMESPACE
+})(Eisdieler || (Eisdieler = {}));
 //# sourceMappingURL=ice.js.map
