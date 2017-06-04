@@ -21,17 +21,9 @@ header {
 	text-align: center;
 }
 
-
-.heading {
-	font-family: 'Vibur', cursive;
-	font-size: 2.5em;
-	color: #FFFFFF;
-}
-
 .heading2 {
 	color: #000000;
 }
-
 
 body {
 	font-family: 'Indie Flower';
@@ -58,7 +50,6 @@ hr {
 	margin-top: 1em;
 }
 
-
 fieldset {
 	background-color: #FFDFDD;
 	padding: 1em;
@@ -83,13 +74,10 @@ aside {
 	margin-bottom: 4em;
 }
 
-
-
 label::after {
 	content: "";
 	display: block;
 }
-
 
 #send {
 	border-radius: 25px;
@@ -105,13 +93,11 @@ label::after {
 	margin-top: 1.5em;
 }
 
-
 #select1 {
 	margin-top: 1.5em;
 }
 
-
-input[type="stepper"], label {
+#flavours label {
 	display: inline;
 	float: left;
 	margin: 0.4em;
