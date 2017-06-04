@@ -56,6 +56,7 @@ var Eisdieler;
         let location = document.getElementById("location");
         let delivery = document.getElementById("delivery");
         let container = 0;
+        let scoop = 0;
         //Check for missing inputs
         if (name.validity.valid == false)
             warning.push("Please enter your name \n");
@@ -67,6 +68,12 @@ var Eisdieler;
         if (delivery.value != "Foot" && delivery.value != "Express")
             warning.push("Please choose your preferred delivery option \n");
         //If no Ice selected???
+        for (let i = 0; i < inputflavour.length; i++) {
+            if (parseInt(inputflavour[i].value) > 0)
+                scoop += 1;
+        }
+        if (scoop == 0)
+            warning.push("No ice cream selected\n");
         //If no container (radio) checked
         for (let i = 0; i < inputcontainer.length; i++) {
             if (inputcontainer[i].checked)
@@ -158,7 +165,7 @@ var Eisdieler;
         //Create selected Ice list
         for (let i = 0; i < inputflavour.length; i++) {
             if (parseInt(inputflavour[i].value) > 0) {
-                creations.innerText += flavours[i] + " " + "\n";
+                creations.innerText += (parseInt(inputflavour[i].value)) + " scoop(s) of " + flavours[i] + " " + "\n";
             }
         }
         //Create selected topping list

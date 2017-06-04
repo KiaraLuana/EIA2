@@ -14,15 +14,15 @@ namespace Eisdieler {
 
     let flavour: HTMLElement;
     let flavours: string[] = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio",
-    "Cinnamon" , "Tiramisu", "Coconut", "Cookies", 
-                              "Coffee", "Caramel", "Bueno", "Rafaello",  
-                              "Almond", "Hazelnut"
+        "Cinnamon", "Tiramisu", "Coconut", "Cookies",
+        "Coffee", "Caramel", "Bueno", "Rafaello",
+        "Almond", "Hazelnut"
     ];
     let inputflavour: HTMLInputElement[] = [];
-    
+
     let fruit: HTMLElement;
-    let fruits: string[] = ["Strawberry", "Raspberry", "Cherry", "Green Apple", 
-    "Pineapple", "Melon", "Cantaloupe", "Mango", "Kiwi", "Grapefruit", "Pomegranate"
+    let fruits: string[] = ["Strawberry", "Raspberry", "Cherry", "Green Apple",
+        "Pineapple", "Melon", "Cantaloupe", "Mango", "Kiwi", "Grapefruit", "Pomegranate"
     ];
 
     let topping: HTMLElement;
@@ -36,8 +36,8 @@ namespace Eisdieler {
     let order: HTMLElement;
     let creation: HTMLElement;
     let creations: HTMLElement;
-    
-    
+
+
 
     //INITIALIZE
     function init(): void {
@@ -64,7 +64,7 @@ namespace Eisdieler {
     }
 
     //CHECK ORDER
-    function checkInput (): void {
+    function checkInput(): void {
 
         let warning: string[] = ["Invalid Entry: \n"];
         let name: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
@@ -72,6 +72,7 @@ namespace Eisdieler {
         let location: HTMLInputElement = <HTMLInputElement>document.getElementById("location");
         let delivery: HTMLInputElement = <HTMLInputElement>document.getElementById("delivery");
         let container: number = 0;
+        let scoop: number = 0;
 
         //Check for missing inputs
         if (name.validity.valid == false)
@@ -80,15 +81,22 @@ namespace Eisdieler {
             warning.push("Please enter your street \n");
         if (location.validity.valid == false)
             warning.push("Please enter your location \n");
-        
+
         //Delivery??
         if (delivery.value != "Foot" && delivery.value != "Express")
             warning.push("Please choose your preferred delivery option \n");
 
 
         //If no Ice selected???
-        
-     
+
+        for (let i: number = 0; i < inputflavour.length; i++) {
+            if (parseInt(inputflavour[i].value) > 0)
+                scoop += 1;
+        }
+        if (scoop == 0)
+            warning.push("No ice cream selected\n");
+
+
 
         //If no container (radio) checked
         for (let i: number = 0; i < inputcontainer.length; i++) {
@@ -208,7 +216,7 @@ namespace Eisdieler {
         //Create selected Ice list
         for (let i: number = 0; i < inputflavour.length; i++) {
             if (parseInt(inputflavour[i].value) > 0) {
-                creations.innerText += flavours[i] + " " + "\n";
+                creations.innerText += (parseInt(inputflavour[i].value)) + " scoop(s) of " + flavours[i] + " " + "\n";
             }
         }
 
