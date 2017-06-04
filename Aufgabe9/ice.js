@@ -76,7 +76,7 @@ var Eisdieler;
                 container += 1;
         }
         if (container == 0)
-            warning.push("No ice container selected");
+            warning.push("No ice container selected\n");
         //Create warning message
         if (warning.length > 1) {
             for (let i = 0; i < warning.length; i++)
@@ -84,7 +84,7 @@ var Eisdieler;
             alert(warning.join(""));
         }
         else {
-            alert("Your order has been submitted.");
+            alert("Your order has been submitted\n");
         }
     }
     //Create Ice Selection

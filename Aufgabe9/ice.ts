@@ -102,7 +102,7 @@ namespace Eisdieler {
                 container += 1;
         }
         if (container == 0)
-            warning.push("No ice container selected");
+            warning.push("No ice container selected\n");
 
         //Create warning message
         if (warning.length > 1) {
@@ -114,7 +114,7 @@ namespace Eisdieler {
 
         //All fine - continue
         else {
-            alert("Your order has been submitted.");
+            alert("Your order has been submitted\n");
         }
 
     }
