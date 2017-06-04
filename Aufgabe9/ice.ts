@@ -13,8 +13,17 @@ namespace Eisdieler {
     //GLOBAL VARIABLES
 
     let flavour: HTMLElement;
-    let flavours: string[] = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio", "Cinnamon"];
+    let flavours: string[] = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio",
+    "Cinnamon" , "Tiramisu", "Coconut", "Cookies", 
+                              "Coffee", "Caramel", "Bueno", "Rafaello",  
+                              "Almond", "Hazelnut"
+    ];
     let inputflavour: HTMLInputElement[] = [];
+    
+    let fruit: HTMLElement;
+    let fruits: string[] = ["Strawberry", "Raspberry", "Cherry", "Green Apple", 
+    "Pineapple", "Melon", "Cantaloupe", "Mango", "Kiwi", "Grapefruit", "Pomegranate"
+    ];
 
     let topping: HTMLElement;
     let toppings: string[] = ["Whipped Cream", "Brittle", "Couverture"];
@@ -27,12 +36,15 @@ namespace Eisdieler {
     let order: HTMLElement;
     let creation: HTMLElement;
     let creations: HTMLElement;
+    
+    
 
     //INITIALIZE
     function init(): void {
 
         //Ini fieldsets
         flavour = document.getElementById("flavours");
+        fruit = document.getElementById("fruits");
         topping = document.getElementById("toppings");
         container = document.getElementById("containers");
         order = document.getElementById("order");
@@ -182,7 +194,7 @@ namespace Eisdieler {
         }
         for (let i: number = 0; i < inputtopping.length; i++) {
             if (inputtopping[i].checked)
-                total += .4; //add topping price (40 cent)
+                total += .25; //add topping price (40 cent)
         }
 
         showOrder(total); //submit sum (parameter: total) to changeCart function

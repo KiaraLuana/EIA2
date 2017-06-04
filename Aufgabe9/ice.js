@@ -11,8 +11,16 @@ var Eisdieler;
     window.addEventListener("load", init);
     //GLOBAL VARIABLES
     let flavour;
-    let flavours = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio", "Cinnamon"];
+    let flavours = ["Vanilla", "Chocolate", "Stracciatella", "Pistachio",
+        "Cinnamon", "Tiramisu", "Coconut", "Cookies",
+        "Coffee", "Caramel", "Bueno", "Rafaello",
+        "Almond", "Hazelnut"
+    ];
     let inputflavour = [];
+    let fruit;
+    let fruits = ["Strawberry", "Raspberry", "Cherry", "Green Apple",
+        "Pineapple", "Melon", "Cantaloupe", "Mango", "Kiwi", "Grapefruit", "Pomegranate"
+    ];
     let topping;
     let toppings = ["Whipped Cream", "Brittle", "Couverture"];
     let inputtopping = [];
@@ -26,6 +34,7 @@ var Eisdieler;
     function init() {
         //Ini fieldsets
         flavour = document.getElementById("flavours");
+        fruit = document.getElementById("fruits");
         topping = document.getElementById("toppings");
         container = document.getElementById("containers");
         order = document.getElementById("order");
@@ -138,7 +147,7 @@ var Eisdieler;
         }
         for (let i = 0; i < inputtopping.length; i++) {
             if (inputtopping[i].checked)
-                total += .4; //add topping price (40 cent)
+                total += .25; //add topping price (40 cent)
         }
         showOrder(total); //submit sum (parameter: total) to changeCart function
     }
