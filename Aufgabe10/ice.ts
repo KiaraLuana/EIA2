@@ -105,9 +105,9 @@ namespace Ice {
         }
 
         //Bestellung vollständig
-        else {
-            alert("Your order has been submitted\n");
-        }
+//        else {
+//            alert("Your order has been submitted\n");
+//        }
 
     }
 

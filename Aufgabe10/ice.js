@@ -81,9 +81,10 @@ var Ice;
                 warning.push;
             alert(warning.join(""));
         }
-        else {
-            alert("Your order has been submitted\n");
-        }
+        //Bestellung vollständig
+        //        else {
+        //            alert("Your order has been submitted\n");
+        //        }
     }
     //Eiscreme Auswahl
     function icecreamKit() {
