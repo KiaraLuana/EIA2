@@ -1,0 +1,75 @@
+<!--
+Aufgabe: Aufgabe 9 - FormElements
+Name: Kiara Luana Oßwald
+Matrikel: 254140
+Datum: 04.06.2017
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Luanas Eisdieler</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script type="text/javascript" src="ice.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sacramento"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Luanas</h1>
+		<img src="imgs/ice2.png">
+	</header>
+	<form action="https://mkbeia2heroku.herokuapp.com" method="get">
+		<main>
+		<h2 class="heading2">Create your own ice cream!</h2>
+		<fieldset id="flavours">
+			<h2>Flavours</h2>
+			<h3>Classic</h3>
+		</fieldset>
+		<fieldset id="toppings">
+			<h2>Toppings</h2>
+		</fieldset>
+		<fieldset id="containers">
+			<h2>Container</h2>
+		</fieldset>
+		</main>
+
+
+		<aside>
+			<fieldset id="address">
+				<h2>Your Address</h2>
+				<input type="text" name="Name" placeholder="Name" required id="name">
+				<input type="text" name="Street" placeholder="Street" required
+					id="street"> <input type="text" name="Location"
+					placeholder="Location" required id="location">
+			</fieldset>
+
+
+			<fieldset id="delivery">
+				<h2>Delivery</h2>
+				<input type="radio" name="Options" value="option1" id="option1"
+					checked="checked" /> <label for="radio1">Standard</label> <input
+					type="radio" name="Options" value="option2" id="option2" /> <label
+					for="radio2">Premium</label>
+			</fieldset>
+
+
+			<fieldset id="order">
+				<h2>Your Order:</h2>
+				<p id="creation"></p>
+				<h2>Total:</h2>
+				<p id="total"></p>
+			</fieldset>
+
+			<a><button name="complete" type="button" id=send>Order
+					Now</button></a>
+		</aside>
+	</form>
+</body>
+</html>
