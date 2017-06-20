@@ -104,10 +104,6 @@ namespace Ice {
 
         }
 
-        //Bestellung vollständig
-//        else {
-//            alert("Your order has been submitted\n");
-//        }
 
     }
 
@@ -141,6 +137,7 @@ namespace Ice {
         input.min = "0";
         input.value = "0";
         label.id = _sort;
+        input.name = _sort;
 
         label.appendChild(input);
         flavour.appendChild(label);
