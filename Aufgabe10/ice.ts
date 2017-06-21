@@ -151,6 +151,7 @@ namespace Ice {
 
         input.type = "checkbox";
         label.id = _topping;
+        input.name = _topping;
         label.innerText = _topping;
 
         label.appendChild(input);
