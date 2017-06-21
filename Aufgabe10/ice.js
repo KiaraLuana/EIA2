@@ -129,6 +129,7 @@ var Ice;
         label.innerText = _darbietung;
         input.required = true;
         label.id = _darbietung;
+        input.name = _darbietung;
         label.appendChild(input);
         container.appendChild(label);
         inputcontainer.push(input);
