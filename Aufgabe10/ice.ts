@@ -167,7 +167,7 @@ namespace Ice {
         input.type = "radio";
         input.name = "container";
         label.innerText = _darbietung;
-        input.required = true;
+        //input.required = true;
         label.id = _darbietung;
         input.name = _darbietung;
 
