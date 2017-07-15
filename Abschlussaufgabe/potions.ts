@@ -53,7 +53,7 @@ namespace HarryPotter {
 
         //Objekte
 
-        
+
         drawCauldron(500, 450, "#000000", "#000000");
         drawCandle(800, 480, "#990000", "#990000");
         drawCandle(750, 510, "#990000", "#990000");
@@ -65,11 +65,14 @@ namespace HarryPotter {
         drawRecipe4(20, 260, "#F4A460", "#F4A460");
         drawRecipe5(20, 310, "#F4A460", "#F4A460");
         drawWand(210, 400, "#502916", "#502916");
-        drawBook(180, 500, "#2d2d86", "#2d2d86");
+        drawBook(180, 510, "#2d2d86", "#2d2d86");
+        drawWindow(750, 40, "#000000", "#000000");
+        drawMoon(900, 75, "#FFFFFF", "#FFFFFF");
         drawFlame1(808, 473, "#ffcc80", "#ffcc80");
         drawFlame2(758, 503, "#ffcc80", "#ffcc80");
         drawFlame3(833, 503, "#ffcc80", "#ffcc80");
-        
+
+
 
     }
 
@@ -132,7 +135,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#4d4d4d";
         crc2.strokeStyle = _strokeColor;
@@ -265,7 +268,7 @@ namespace HarryPotter {
         crc2.stroke();
 
     }
-    
+
     function drawBook(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -277,7 +280,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-    
+
         crc2.beginPath();
         crc2.fillStyle = "#FFFFFF";
         crc2.strokeStyle = "#000000";
@@ -288,7 +291,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-    
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -299,7 +302,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -310,7 +313,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -321,7 +324,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -332,7 +335,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -343,7 +346,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -354,7 +357,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -365,7 +368,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -376,7 +379,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -387,7 +390,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -398,7 +401,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -409,7 +412,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -420,7 +423,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -431,7 +434,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -442,7 +445,7 @@ namespace HarryPotter {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-        
+
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -471,7 +474,7 @@ namespace HarryPotter {
         crc2.fill();
         crc2.stroke();
     }
-    
+
     function drawFlame2(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -488,7 +491,7 @@ namespace HarryPotter {
         crc2.fill();
         crc2.stroke();
     }
-    
+
     function drawFlame3(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -497,6 +500,61 @@ namespace HarryPotter {
         crc2.quadraticCurveTo(834, 470, 838, 503);
         crc2.shadowColor = "#FFFFFF";
         crc2.shadowBlur = 20;
+        crc2.shadowOffsetX = 0;
+        crc2.shadowOffsetY = 0;
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+
+    function drawWindow(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = "#2d2d86";
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.fillRect(_x, _y, 200, 160);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.moveTo(_x + 100, _y);
+        crc2.lineTo(_x + 100, _y + 160);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.moveTo(_x, _y + 80);
+        crc2.lineTo(_x + 200, _y + 80);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+    }
+
+    function drawMoon(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 25, 0 * Math.PI, 2 * Math.PI);
+        crc2.shadowColor = "#FFFFFF";
+        crc2.shadowBlur = 15;
         crc2.shadowOffsetX = 0;
         crc2.shadowOffsetY = 0;
         crc2.stroke();
