@@ -198,7 +198,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "50px 'Great Vibes', cursive";
-        crc2.strokeText("Recipes", _x, _y);
+        crc2.fillText("Recipes", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -211,7 +211,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "30px 'Great Vibes', cursive";
-        crc2.strokeText("Love Potion", _x, _y);
+        crc2.fillText("Love Potion", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -224,7 +224,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "30px 'Great Vibes', cursive";
-        crc2.strokeText("Felix Felicis", _x, _y);
+        crc2.fillText("Felix Felicis", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -237,7 +237,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "30px 'Great Vibes', cursive";
-        crc2.strokeText("Draught of Living Death", _x, _y);
+        crc2.fillText("Draught of Living Death", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -250,7 +250,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "30px 'Great Vibes', cursive";
-        crc2.strokeText("Draught of Peace", _x, _y);
+        crc2.fillText("Draught of Peace", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -263,7 +263,7 @@ namespace HarryPotter {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.font = "30px 'Great Vibes', cursive";
-        crc2.strokeText("Veritaserum", _x, _y);
+        crc2.fillText("Veritaserum", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
