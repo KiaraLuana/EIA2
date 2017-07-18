@@ -10,10 +10,26 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 body {
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Calligraffitti', cursive;
+	background-color: #FFF8DC;
 }
 
 canvas {
-	border: 3px solid;
+	border: 5px solid;
 	border-color: #990000;
+	float: left;
+	margin-right: 1em;
 }
+
+
+h2 {
+	font-size: 60px;
+	color: #F4A460;
+}
+
+div {
+	font-size: 30px;
+	color: #F4A460;
+}
+
+

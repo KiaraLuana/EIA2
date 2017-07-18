@@ -72,11 +72,11 @@ namespace HarryPotter {
         drawCandle(750, 510, "#990000", "#990000");
         drawCandle(825, 510, "#990000", "#990000");
         drawHeadline(20, 50, "#F4A460", "#F4A460");
-        drawRecipe1(20, 110, "#F4A460", "#F4A460");
-        drawRecipe2(20, 160, "#F4A460", "#F4A460");
-        drawRecipe3(20, 210, "#F4A460", "#F4A460");
-        drawRecipe4(20, 260, "#F4A460", "#F4A460");
-        drawRecipe5(20, 310, "#F4A460", "#F4A460");
+        //drawRecipe1(20, 110, "#F4A460", "#F4A460");
+        //drawRecipe2(20, 160, "#F4A460", "#F4A460");
+        //drawRecipe3(20, 210, "#F4A460", "#F4A460");
+        //drawRecipe4(20, 260, "#F4A460", "#F4A460");
+        //drawRecipe5(20, 310, "#F4A460", "#F4A460");
         drawWand(210, 400, "#502916", "#502916");
         drawBook(180, 510, "#2d2d86", "#2d2d86");
         drawWindow(750, 40, "#000000", "#000000");
@@ -93,6 +93,63 @@ namespace HarryPotter {
 
 
     }
+    
+
+    document.addEventListener('DOMContentLoaded', function love(): void {
+    
+ 
+            
+        document.getElementById("love").addEventListener ("click", function(){
+            alert ("Try to remember all the ingredients:\n\nAshwinder Egg\nPowdered Moonstone");
+           
+        });
+    
+});
+   
+    document.addEventListener('DOMContentLoaded', function () {
+    
+ 
+            
+        document.getElementById("luck").addEventListener ("click", function(){
+            alert ("Try to remember all the ingredients:");
+           
+        });
+    
+});
+    document.addEventListener('DOMContentLoaded', function () {
+    
+ 
+            
+        document.getElementById("zombie").addEventListener ("click", function(){
+            alert ("Try to remember all the ingredients:");
+           
+        });
+    
+});
+    document.addEventListener('DOMContentLoaded', function () {
+    
+ 
+            
+        document.getElementById("calm").addEventListener ("click", function(){
+            alert ("Try to remember all the ingredients:\n\nPowdered Moonstone\nUnicorn Horn");
+           
+        });
+    
+});
+    document.addEventListener('DOMContentLoaded', function () {
+    
+ 
+            
+        document.getElementById("truth").addEventListener ("click", function(){
+            alert ("Try to remember all the ingredients:\n\nDragoneye");
+           
+        });
+    
+});
+    
+    
+
+
 
 
     function drawCauldron(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -197,8 +254,8 @@ namespace HarryPotter {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
-        crc2.font = "50px 'Great Vibes', cursive";
-        crc2.fillText("Recipes", _x, _y);
+        crc2.font = "50px 'Calligraffitti', cursive";
+        crc2.fillText("Potter's Potion Kitchen", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
@@ -665,8 +722,8 @@ namespace HarryPotter {
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
-        crc2.moveTo(_x -2, _y - 5);
-        crc2.arc(_x -2, _y - 5, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.moveTo(_x - 2, _y - 5);
+        crc2.arc(_x - 2, _y - 5, 5, 0 * Math.PI, 2 * Math.PI);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();

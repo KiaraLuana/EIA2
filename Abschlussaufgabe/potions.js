@@ -39,11 +39,11 @@ var HarryPotter;
         drawCandle(750, 510, "#990000", "#990000");
         drawCandle(825, 510, "#990000", "#990000");
         drawHeadline(20, 50, "#F4A460", "#F4A460");
-        drawRecipe1(20, 110, "#F4A460", "#F4A460");
-        drawRecipe2(20, 160, "#F4A460", "#F4A460");
-        drawRecipe3(20, 210, "#F4A460", "#F4A460");
-        drawRecipe4(20, 260, "#F4A460", "#F4A460");
-        drawRecipe5(20, 310, "#F4A460", "#F4A460");
+        //drawRecipe1(20, 110, "#F4A460", "#F4A460");
+        //drawRecipe2(20, 160, "#F4A460", "#F4A460");
+        //drawRecipe3(20, 210, "#F4A460", "#F4A460");
+        //drawRecipe4(20, 260, "#F4A460", "#F4A460");
+        //drawRecipe5(20, 310, "#F4A460", "#F4A460");
         drawWand(210, 400, "#502916", "#502916");
         drawBook(180, 510, "#2d2d86", "#2d2d86");
         drawWindow(750, 40, "#000000", "#000000");
@@ -52,6 +52,31 @@ var HarryPotter;
         drawFlame2(758, 503, "#ffcc80", "#ffcc80");
         drawFlame3(833, 503, "#ffcc80", "#ffcc80");
     }
+    document.addEventListener('DOMContentLoaded', function love() {
+        document.getElementById("love").addEventListener("click", function () {
+            alert("Try to remember all the ingredients:\n\nAshwinder Egg\nPowdered Moonstone");
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("luck").addEventListener("click", function () {
+            alert("Try to remember all the ingredients:");
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("zombie").addEventListener("click", function () {
+            alert("Try to remember all the ingredients:");
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("calm").addEventListener("click", function () {
+            alert("Try to remember all the ingredients:\n\nPowdered Moonstone\nUnicorn Horn");
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("truth").addEventListener("click", function () {
+            alert("Try to remember all the ingredients:\n\nDragoneye");
+        });
+    });
     function drawCauldron(_x, _y, _strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
@@ -143,8 +168,8 @@ var HarryPotter;
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
-        crc2.font = "50px 'Great Vibes', cursive";
-        crc2.fillText("Recipes", _x, _y);
+        crc2.font = "50px 'Calligraffitti', cursive";
+        crc2.fillText("Potter's Potion Kitchen", _x, _y);
         crc2.stroke();
         crc2.fill();
         crc2.closePath();
