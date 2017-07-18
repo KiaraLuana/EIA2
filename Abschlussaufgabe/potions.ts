@@ -51,6 +51,19 @@ namespace HarryPotter {
         crc2.fillStyle = "#773d22";
         crc2.fillRect(0, 490, 1000, 250);
 
+
+        //Ingredients
+
+
+        //drawAshwinderEgg(600, 75, "#B22222", "#B22222");
+        //drawPowderedMoonstone(550, 75, "#000000", "#000000");
+        //drawUnicornHorn(500, 150, "#FFF0F5", "#FFF0F5");
+        //drawDragonEye(450, 75, "#FFFFFF", "#FFFFFF");
+
+
+
+
+
         //Objekte
 
 
@@ -71,6 +84,11 @@ namespace HarryPotter {
         drawFlame1(808, 473, "#ffcc80", "#ffcc80");
         drawFlame2(758, 503, "#ffcc80", "#ffcc80");
         drawFlame3(833, 503, "#ffcc80", "#ffcc80");
+
+
+
+
+
 
 
 
@@ -563,4 +581,97 @@ namespace HarryPotter {
         crc2.fill();
         crc2.stroke();
     }
+
+
+    //Ingredients
+
+    function drawAshwinderEgg(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.quadraticCurveTo(610, 100, 620, 75);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.quadraticCurveTo(610, 50, 620, 75);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+    function drawPowderedMoonstone(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 25, 1 * Math.PI, 2 * Math.PI, true);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(575, 75);
+        crc2.quadraticCurveTo(550, 90, 525, 75);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+    }
+    
+    function drawUnicornHorn(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 60, _y - 100);
+        crc2.lineTo(_x - 25, _y + 0);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        
+
+    }
+    
+    function drawDragonEye(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.moveTo(_x, _y);
+        crc2.arc(_x, _y, 15, 0 * Math.PI, 2 * Math.PI);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.moveTo(_x -2, _y - 5);
+        crc2.arc(_x -2, _y - 5, 5, 0 * Math.PI, 2 * Math.PI);
+        crc2.stroke();
+        crc2.fill();
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
 }
