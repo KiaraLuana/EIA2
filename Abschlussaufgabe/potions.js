@@ -148,22 +148,22 @@ var HarryPotter;
     }
     //Show Rezept Love
     function ingLove() {
-        alert("Try to remember all the ingredients:\n\n- Ashwinder Egg\n- Powdered Moonstone\n- Rose Thorn\n- Pearl Dust\n- Peppermint");
+        alert("Try to remember all the ingredients:\n\n- Ashwinder Egg\n- Powdered Moonstone\n- Rose Thorn\n- Pearl Dust\n- Peppermint\n\n");
     }
     //Rezept Luck
     function ingLuck() {
-        alert("Try to remember all the ingredients:\n\n- Phoenix Tears\n- Occamy Eggshell\n- Veela Hair\n- Cinnamon\n- Pumpkin Juice");
+        alert("Try to remember all the ingredients:\n\n- Phoenix Tears\n- Occamy Eggshell\n- Veela Hair\n- Cinnamon\n- Pumpkin Juice\n\n");
     }
     //Rezept Calm
     function ingCalm() {
-        alert("Try to remember all the ingredients:\n\n- Unicorn Horn\n- Powdered Moonstone\n- Phoenix Tears\n- Night Shade\n- Mermaid Scale");
+        alert("Try to remember all the ingredients:\n\n- Unicorn Horn\n- Powdered Moonstone\n- Phoenix Tears\n- Night Shade\n- Mermaid Scale\n\n");
     }
     //Rezept Truth
     function ingTruth() {
-        alert("Try to remember all the ingredients:\n\n- Dragoneye\n- Bezoar\n- Acromantula Venom\n- Basilisk Fang\n- Mermaid Scale");
+        alert("Try to remember all the ingredients:\n\n- Dragoneye\n- Bezoar\n- Acromantula Venom\n- Basilisk Fang\n- Mermaid Scale\n\n");
     }
     function ingPoly() {
-        alert("Try to figure out the ingredients for this potion yourself.\n\nKeep in mind: Less isn't always more.");
+        alert("Try to find out the ingredients for this potion yourself.\n\nKeep in mind: Less isn't always more.\n\n");
     }
     //CANVAS
     function drawCanvas() {
