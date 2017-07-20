@@ -6,9 +6,6 @@ Datum: 14.07.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-
-
-
 body {
 	font-family: 'Calligraffitti', cursive;
 	background-color: #FFF8DC;
@@ -21,7 +18,6 @@ canvas {
 	margin-right: 1em;
 }
 
-
 h2 {
 	font-size: 60px;
 	color: #F4A460;
@@ -32,4 +28,39 @@ div {
 	color: #F4A460;
 }
 
+h3 {
+	position: absolute;
+	top: 110px;
+	left: 30px;
+	font-size: 30px;
+	color: #F4A460;
+}
 
+fieldset {
+	position: absolute;
+	top: 200px;
+	left: 25px;
+	width: 500px;
+	font-size: 20px;
+	color: #F4A460;
+	font-size: 20px;
+}
+
+button {
+	position: absolute;
+	top: 400px;
+	left: 30px;
+	border-radius: 25px;
+	background-color: white;
+	color: #990000;
+	font-weight: bold;
+	font-family: 'Calligraffitti', cursive;
+	font-size: large;
+	margin-top: 0.5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+#poly {
+	color: #990000;
+}
