@@ -146,7 +146,7 @@ namespace HarryPotter {
             cauldron[0].potionColor = "#FF0000";
             cauldron[0].update();
             realPotion = true;
-            output = "Congratulations!\nYou've uncovered the ingredients of the Secret Potion!\nYou've successfully brewed Polyjuice Potion!\n\nPolyjuice Potion is a potion that allows the drinker\nto assume the form of someone else.\nIt's a complicated and challenging potion\nthat even adult witches and wizards struggle to brew correctly.";
+            output = "Congratulations!\nYou have uncovered the ingredients of the Secret Potion!\nYou've successfully brewed Polyjuice Potion!\n\nPolyjuice Potion is a potion that allows the drinker\nto assume the form of someone else.\nIt's a complicated and challenging potion\nthat even adult witches and wizards struggle to brew correctly.";
         }
 
         //Final output
@@ -202,7 +202,7 @@ namespace HarryPotter {
     }
     
      function ingPoly(): void {
-        alert("Try to figure out the ingredients for this potion on your own.");
+        alert("Try to figure out the ingredients for this potion yourself.\n\nKeep in mind: Less isn't always more.");
     }
 
     //CANVAS

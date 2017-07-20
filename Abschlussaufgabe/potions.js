@@ -120,7 +120,7 @@ var HarryPotter;
             HarryPotter.cauldron[0].potionColor = "#FF0000";
             HarryPotter.cauldron[0].update();
             realPotion = true;
-            output = "Congratulations!\nYou've uncovered the ingredients of the Secret Potion!\nYou've successfully brewed Polyjuice Potion!\n\nPolyjuice Potion is a potion that allows the drinker\nto assume the form of someone else.\nIt's a complicated and challenging potion\nthat even adult witches and wizards struggle to brew correctly.";
+            output = "Congratulations!\nYou have uncovered the ingredients of the Secret Potion!\nYou've successfully brewed Polyjuice Potion!\n\nPolyjuice Potion is a potion that allows the drinker\nto assume the form of someone else.\nIt's a complicated and challenging potion\nthat even adult witches and wizards struggle to brew correctly.";
         }
         //Final output
         if (realPotion) {
@@ -163,7 +163,7 @@ var HarryPotter;
         alert("Try to remember all the ingredients:\n\n- Dragoneye\n- Bezoar\n- Acromantula Venom\n- Basilisk Fang\n- Mermaid Scale");
     }
     function ingPoly() {
-        alert("Try to figure out the ingredients for this potion on your own.");
+        alert("Try to figure out the ingredients for this potion yourself.\n\nKeep in mind: Less isn't always more.");
     }
     //CANVAS
     function drawCanvas() {
